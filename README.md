@@ -2,7 +2,7 @@
 
 ### A simple and retro styled Hexo theme, concentrated more on your ideas.
 #### >> [Preview](http://ppoffice.github.io/hexo-theme-minos/)
-![Minos - the Hexo theme](/hexo-theme-minos/gallery/Minos.jpg "")
+![Minos - the Hexo theme](http://ppoffice.github.io/hexo-theme-minos/gallery/Minos.jpg "")
 
 ## Installation
 
@@ -83,7 +83,7 @@ Get your categories and tags listed in single pages to make your blog more metho
 
 Minos knows on what screen size you are browsering the website, and reorganize the layout to fit your device.
 
-![](/hexo-theme-minos/gallery/Minos-mobile.jpg "")
+![](http://ppoffice.github.io/hexo-theme-minos/gallery/Minos-mobile.jpg "")
 
 ### Fancybox
 
