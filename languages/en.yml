@@ -1,0 +1,5 @@
+nav:
+  next: 'Next'
+  prev: 'Prev'
+article:
+  comments: 'Comments'

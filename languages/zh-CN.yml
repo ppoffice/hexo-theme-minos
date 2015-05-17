@@ -1,0 +1,5 @@
+nav:
+  next: '下一页'
+  prev: '上一页'
+article:
+  comments: '评论'
