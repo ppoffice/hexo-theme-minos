@@ -1,0 +1,36 @@
+.layout-wrap
+  margin: block-margin 0
+  
+.layout-title
+  font-size: 1.4em
+  margin-bottom: 1em
+  
+.layout-wrap-inner
+  .category-list,
+  .category-list-child
+    clearfix()
+    line-height: 1.8em
+  .category-list
+    a
+      @extends $link
+  .category-list-child
+    margin-left: 24px
+  li
+    &:before
+      content: '>'
+      float: left
+      padding: 0 16px 0 0
+  .category-list-count
+    margin-left: 8px
+    color: color-grey
+    &:before
+      content: '('
+    &:after
+      content: ')'
+      
+.tag-cloud
+  a
+    @extends $link
+    margin-right: 8px
+    &:before
+      content: '#'

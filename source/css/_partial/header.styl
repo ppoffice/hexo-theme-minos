@@ -1,0 +1,95 @@
+#header
+  font-size: 14px
+  position: relative
+  border-bottom: 1px solid color-border
+  &.mobile-on
+    #main-nav,
+    #sub-nav
+      display: block
+
+#header-outer
+  height: 100%
+  position: relative
+
+#header-inner
+  position: relative
+  overflow: hidden
+
+#main-nav
+  float: left
+  margin-left: -15px
+
+$nav-link
+  float: left
+  color: black
+  text-decoration: none
+  transition: opacity 0.2s
+  display: block
+  padding: 20px 15px
+
+.main-nav-link
+  @extend $nav-link
+  font-weight: 600
+  @media mq-mobile
+    float: none
+    text-align: center
+
+#main-nav-toggle
+  @extend $nav-link
+  display: none
+  font-size: 16px
+  padding-left: 0
+  font-family: font-icon
+  &:before
+    content: "\f0c9"
+  @media mq-mobile
+    display: block
+    
+#logo
+  float:left
+  @media mq-mobile
+    float: none
+    width: 100%
+    display: block
+    background-position: center
+
+#sub-nav
+  float: right
+
+#main-nav,
+#sub-nav
+  @media mq-mobile
+    display: none
+    float: none
+
+#search-form-wrap
+  top: 15px
+  padding: 20px 15px
+  @media mq-mobile
+    text-align: center
+  
+.search-form
+  clearfix()
+  @media mq-mobile
+    display: inline-block
+
+.search-form-input
+  width: 150px
+  border: none
+  float: left
+  font-size: 14px
+  background: none
+  color: color-default
+  outline: none
+  &::-webkit-search-results-decoration
+  &::-webkit-search-cancel-button
+    -webkit-appearance: none
+
+.search-form-submit
+  @extend $nav-link
+  float: left
+  padding: 0
+  font-family: font-icon
+  border: none
+  background: none
+  cursor: pointer

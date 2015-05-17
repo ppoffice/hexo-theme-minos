@@ -1,0 +1,68 @@
+@import "nib"
+@import "_variables"
+@import "_util/mixin"
+
+global-reset()
+
+input, button
+  margin: 0
+  padding: 0
+  font: font-size font-default
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
+
+@font-face
+  font-family: FontAwesome
+  font-style: normal
+  font-weight: normal
+  src: url(font-icon-path + ".eot?v=#" + font-icon-version)
+  src: url(font-icon-path + ".eot?#iefix&v=#" + font-icon-version) format("embedded-opentype"),
+       url(font-icon-path + ".woff?v=#" + font-icon-version) format("woff"),
+       url(font-icon-path + ".ttf?v=#" + font-icon-version) format("truetype"),
+       url(font-icon-path + ".svg#fontawesomeregular?v=#" + font-icon-version) format("svg")
+
+html, body, #container
+  height: 100%
+
+body
+  background: color-background
+  font: font-size font-default
+  -webkit-text-size-adjust: 100%
+
+.outer
+  clearfix()
+  max-width: 800px
+  margin: 0 auto
+  @media mq-mobile
+    padding: 0 20px
+
+.left, .alignleft
+  float: left
+
+.right, .alignright
+  float: right
+
+.clear
+  clear: both
+
+#container
+  position: relative
+
+.logo
+  width: 94px
+  height: 57px
+  background-image: url(images/logo.png)
+  background-size: 74px 28px
+  background-position: left center
+  background-repeat: no-repeat
+
+@import "_extend"
+@import "_partial/header"
+@import "_partial/article"
+@import "_partial/comment"
+@import "_partial/archive"
+@import "_partial/footer"
+@import "_partial/highlight"
+@import "_partial/custom-layout"
+@import "_partial/fancybox"
