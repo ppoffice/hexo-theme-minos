@@ -14,7 +14,7 @@
 </script>
 <% } %>
 
-<script src="<%- url_for('/js/jquery.min.js') %>"></script>
+<script src="<%- url_for(config.root + 'js/jquery.min.js') %>"></script>
 
 <% if (theme.fancybox){ %>
   <%- css('fancybox/jquery.fancybox') %>
@@ -22,3 +22,35 @@
 <% } %>
 
 <%- js('js/script') %>
+<script type="text/javascript">
+    //<![CDATA[
+    (function() {
+    var shr = document.createElement('script');
+    shr.setAttribute('data-cfasync', 'false');
+    shr.src = '//dsms0mj1bbhn4.cloudfront.net/assets/pub/shareaholic.js';
+    shr.type = 'text/javascript'; shr.async = 'true';
+    shr.onload = shr.onreadystatechange = function() {
+    var rs = this.readyState;
+    if (rs && rs != 'complete' && rs != 'loaded') return;
+    var site_id = '0b410bd054284c1dfbd3e6d5a77d1877';
+    try { Shareaholic.init(site_id); } catch (e) {}
+    };
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(shr, s);
+    })();
+    //]]>
+</script>
+<script type="text/javascript">
+    (function(w, d){
+        w['_brSiteId'] = 'Esjbij';
+        function br() {
+            var i='browsi-js'; if (d.getElementById(i)) {return;}
+            var siteId = /^[a-zA-Z0-9]{1,7}$/.test(w['_brSiteId']) ? w['_brSiteId'] : null;
+            var js=d.createElement('script'); js.id=i; js.async=true;
+            js.src='//js.brow.si/' + ( siteId != null ? siteId + '/' : '' ) + 'br.js';
+            (d.head || d.getElementsByTagName('head')[0]).appendChild(js);
+        }
+        d.readyState == 'complete' ? br() :
+            ( w.addEventListener ? w.addEventListener('load', br, false) : w.attachEvent('onload', br) );
+    })(window, document);
+    </script>
