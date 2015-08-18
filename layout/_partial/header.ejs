@@ -2,7 +2,7 @@
   <div id="header-outer" class="outer">
     <div id="header-inner" class="inner">
       <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
-      <a id="logo" class="logo" href="<%- url_for('/') %>"></a>
+      <a id="logo" class="logo<%=(theme.logo_text?' logo-text':'')%>" href="<%- url_for('/') %>"><%=(theme.logo_text?theme.logo_text:'')%></a>
       <nav id="main-nav">
         <% for (var i in theme.menu){ %>
           <a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>

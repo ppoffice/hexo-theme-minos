@@ -1,4 +1,5 @@
 # Header
+logo_text: # Add text logo instead of logo image
 menu:
   Home: /
   Archives: archives
