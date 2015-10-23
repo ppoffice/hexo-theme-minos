@@ -212,3 +212,27 @@ a.article-title
     display: block
     max-width: 100%
     margin: 0 auto
+
+.article-toc
+  display: none
+  position: fixed
+  left: 50%
+  top: 110px
+  font-size: 0.9em
+  width: 260px
+  margin-left: 400px
+  padding-left: 20px
+  overflow-y: auto
+  line-height: line-height
+  max-height: 32 * 0.9 * line-height
+  h3
+    font-weight: bold
+    margin-left: 20px
+  .toc-item
+    list-style: none
+    margin-left: 20px
+    a
+      color: black
+      text-decoration: none
+  @media mq-large
+    display: block

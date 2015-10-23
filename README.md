@@ -39,6 +39,7 @@ menu:
 
 # Content
 excerpt_link: Read More
+toc: false
 fancybox: true
 
 # Miscellaneous
@@ -47,6 +48,7 @@ favicon: /favicon.png
 ```
 
 - **excerpt_link** - Cooperate with <!-- more --\> tag to show only part of the article in index pages.
+- **toc** - Whether to show the table of contents in articles.
 - **fancybox** - Enable [Fancybox].
 - **google_analytics** - Google Analytics ID.
 - **favicon** - Favicon path.
@@ -55,7 +57,7 @@ Don't forget to rename `_config.yml.example` to `_config.yml` to enable theme co
 
 ## Custom Categories & Tags Pages
 
-To enable custom categories page and tags page, just copy the `categories` folder and `tags` folder under your theme's `_source` foler into your site's `source` folder. Then edit theme's _config.yml and add the following lines: 
+To enable custom categories page and tags page, just copy the `categories` folder and `tags` folder under your theme's `_source` foler into your site's `source` folder. Then edit theme's _config.yml and add the following lines:
 ```
 # Header
 menu:

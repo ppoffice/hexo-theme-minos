@@ -27,11 +27,17 @@
         <%- post.content %>
       <% } %>
     </div>
-  <% if (!index || post.tags.length){ %>
-    <footer class="article-footer">
-      <%- partial('post/tag') %>
-    </footer>
-  <% } %>
+    <% if (!index && theme.toc && toc(post.content)) { %>
+      <div class="article-toc">
+        <h3><%= __('article.contents') %></h3>
+        <%- toc(post.content) %>
+      </div>
+    <% } %>
+    <% if (!index || post.tags.length){ %>
+      <footer class="article-footer">
+        <%- partial('post/tag') %>
+      </footer>
+    <% } %>
   </div>
   <% if (!index){ %>
     <%- partial('post/nav') %>
