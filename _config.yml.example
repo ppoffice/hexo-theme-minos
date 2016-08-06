@@ -6,6 +6,7 @@ menu:
   Categories: categories
   Tags: tags
   About: about
+  Rss: /atom.xml
 
 # Content
 excerpt_link: Read More
@@ -15,3 +16,7 @@ fancybox: true
 # Miscellaneous
 google_analytics:
 favicon: /favicon.png
+
+# Share
+share_jia: false
+share_addthis: true
