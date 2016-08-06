@@ -36,6 +36,7 @@ menu:
   Categories: categories
   Tags: tags
   About: about
+  Rss: /atom.xml
 
 # Content
 excerpt_link: Read More
@@ -45,6 +46,10 @@ fancybox: true
 # Miscellaneous
 google_analytics:
 favicon: /favicon.png
+
+# Share
+share_jia: false
+share_addthis: true
 ```
 
 - **excerpt_link** - Cooperate with <!-- more --\> tag to show only part of the article in index pages.
@@ -55,15 +60,16 @@ favicon: /favicon.png
 
 Don't forget to rename `_config.yml.example` to `_config.yml` to enable theme config!
 
-## Custom Categories & Tags Pages
+## Custom Categories & Tags & About Pages
 
-To enable custom categories page and tags page, just copy the `categories` folder and `tags` folder under your theme's `_source` foler into your site's `source` folder. Then edit theme's _config.yml and add the following lines:
+To enable custom categories page, tags page and about page, just copy the `categories` folder, `tags` folder and `about` folder under your theme's `_source` foler into your site's `source` folder. Then edit theme's _config.yml and add the following lines:
 ```
 # Header
 menu:
   ...
   Categories: categories # -> add this line
   Tags: tags # -> and add this line
+  About: about # -> and add this line
   ...
 ```
 
