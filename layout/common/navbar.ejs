@@ -1,0 +1,24 @@
+<nav class="navbar is-light navbar-main" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="<%- url_for('/') %>">
+                <img src="<%- url_for('images/logo.png') %>" alt="" height="28">
+            </a>
+            <div class="navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="navbar-menu navbar-start">
+            <% for (var i in theme.menu){ %>
+            <a class="navbar-item" href="<%- url_for(theme.menu[i]) %>"><%= i %></a>
+            <% } %>
+        </div>
+        <div class="navbar-menu navbar-end">
+            <a class="navbar-item" href="javascript:;">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+    </div>
+</nav>

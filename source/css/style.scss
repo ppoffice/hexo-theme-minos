@@ -1,0 +1,110 @@
+$family-serif: "Ovo", "Georgia", serif;
+$family-serif-cap: "Cinzel", serif;
+
+body {
+    font-family: $family-serif;
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 800px;
+        width: 800px;
+    }
+}
+
+.navbar-main {
+    font-family: $family-serif-cap;
+    text-transform: lowercase;
+}
+
+.article {
+    &:not(:first-child) {
+        padding-top: 1.5rem;
+        border-top: 1px solid #eeeeee;
+    }
+
+    .article-title a,
+    .article-meta a {
+        color: inherit;
+        border-bottom: 1px dotted transparent;
+        &:hover {
+            border-bottom-color: black;
+        }
+    }
+
+    .article-meta {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+
+        .column:not(:first-child) {
+            margin-left: -.75rem;
+        }
+
+        .article-category-link {
+            margin: 0 0.3rem;
+        }
+    }
+
+    .article-entry {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+
+    .article-more-link a {
+        color: darkgray;
+        border-bottom: 1px dotted transparent;
+        &:hover {
+            border-bottom-color: black;
+        }
+    }
+
+    .article-tags {
+        .column:not(:first-child) {
+            margin-left: -.75rem;
+        }
+
+        span a {
+            color: inherit;
+            background: #f2f2f2;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+        }
+    }
+
+    .article-nav {
+        a {
+            color: darkgray;
+            position: relative;
+            display: inline-block;
+        }
+
+        .article-nav-prev a {
+            padding-left: 1rem;
+
+            &:before {
+                top: 0;
+                left: 0;
+                content: '<';
+                position: absolute;
+            }
+        }
+
+        .article-nav-next a {
+            padding-right: 1rem;
+
+            &:after {
+                top: 0;
+                right: 0;
+                content: '>';
+                position: absolute;
+            }
+        }
+    }
+
+    .caption {
+        display: block;
+        color: darkgray;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+}

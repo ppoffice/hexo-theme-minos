@@ -1,6 +1,12 @@
+common:
+  archives: 'Archives'
+  category: 'Category'
+  tag: 'Tag'
 nav:
   next: 'Next'
   prev: 'Prev'
 article:
+  read: 'read'
+  words: 'words'
   comments: 'Comments'
   contents: 'Contents'

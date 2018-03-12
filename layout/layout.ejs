@@ -1,10 +1,16 @@
-<%- partial('_partial/head') %>
+<!DOCTYPE html>
+<html>
+<head>
+    <%- partial('common/head') %>
+</head>
 <body>
-  <div id="container">
-    <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
-    <section id="main" class="outer"><%- body %></section>
-    <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+    <%- partial('common/navbar') %>
+    <section class="section">
+        <div class="container">
+            <%- body %>
+        </div>
+    </section>
+    <%- partial('common/footer') %>
     <%- partial('_partial/after-footer') %>
-  </div>
 </body>
 </html>
