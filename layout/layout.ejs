@@ -4,13 +4,9 @@
     <%- partial('common/head') %>
 </head>
 <body>
-    <%- partial('common/navbar') %>
-    <section class="section">
-        <div class="container">
-            <%- body %>
-        </div>
-    </section>
+    <%- partial('common/navbar', { page }) %>
+    <%- body %>
     <%- partial('common/footer') %>
-    <%- partial('_partial/after-footer') %>
+    <%- partial('common/scripts') %>
 </body>
 </html>

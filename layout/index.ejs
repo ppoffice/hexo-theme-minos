@@ -1,11 +1,10 @@
-<% page.posts.each(function(post){ %>
-    <%- partial('_partial/article', {post: post, index: true}) %>
-<% });
-if (page.total > 1) { %>
-<nav id="page-nav">
-    <%- paginator({
-        prev_text: '&laquo; ' + __('nav.prev'),
-        next_text: __('nav.next') + ' &raquo;'
-    }) %>
-</nav>
-<% } %>
+<section class="section">
+    <div class="container">
+    <% page.posts.each(function(post){ %>
+        <%- partial('common/article', { post, index: true }) %>
+    <% }); %>
+    <% if (page.total > 1) { %>
+        <%- partial('common/paginator') %>
+    <% } %>
+    </div>
+</section>

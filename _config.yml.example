@@ -1,12 +1,7 @@
 # Header
 logo_text: # Add text logo instead of logo image
 menu:
-  Home: /
-  Archives: archives
-  Categories: categories
-  Tags: tags
   About: about
-  Rss: /atom.xml
 
 # Content
 excerpt_link: Read More

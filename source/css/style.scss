@@ -1,5 +1,5 @@
 $family-serif: "Ovo", "Georgia", serif;
-$family-serif-cap: "Cinzel", serif;
+$border-color: #dbdbdb;
 
 body {
     font-family: $family-serif;
@@ -13,14 +13,23 @@ body {
 }
 
 .navbar-main {
-    font-family: $family-serif-cap;
-    text-transform: lowercase;
+    border-bottom: 1px solid $border-color;
+
+    a.navbar-item.is-active {
+        color: #3273dc;
+    }
+}
+
+.navbar-category {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
 }
 
 .article {
     &:not(:first-child) {
         padding-top: 1.5rem;
-        border-top: 1px solid #eeeeee;
+        border-top: 1px solid $border-color;
     }
 
     .article-title a,
@@ -51,6 +60,7 @@ body {
     }
 
     .article-more-link a {
+        font-size: 0.9rem;
         color: darkgray;
         border-bottom: 1px dotted transparent;
         &:hover {
@@ -106,5 +116,39 @@ body {
         color: darkgray;
         font-size: 0.95rem;
         text-align: center;
+    }
+}
+
+.pagination {
+    .pagination-previous,
+    .pagination-next,
+    .pagination-link {
+        border: none;
+
+        &:active {
+            box-shadow: none;
+        }
+    }
+
+    .pagination-link.is-current {
+        background-color: black;
+    }
+
+    .pagination-previous {
+        &:before {
+            top: calc(.375em - 1px);
+            left: 0;
+            content: '<';
+            position: absolute;
+        }
+    }
+
+    .pagination-next {
+        &:before {
+            top: calc(.375em - 1px);
+            right: 0;
+            content: '>';
+            position: absolute;
+        }
     }
 }
