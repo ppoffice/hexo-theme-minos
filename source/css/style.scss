@@ -1,5 +1,8 @@
 $family-serif: "Ovo", "Georgia", serif;
 $border-color: #dbdbdb;
+$family-mono: "Source Code Pro", monospace;
+
+@import "../../../../node_modules/highlight.js/styles/atom-one-light";
 
 body {
     font-family: $family-serif;
@@ -13,6 +16,7 @@ body {
 }
 
 .navbar-main {
+    transition: 0.1s ease-in;
     border-bottom: 1px solid $border-color;
 
     a.navbar-item.is-active {
@@ -119,6 +123,60 @@ body {
     }
 }
 
+.footer {
+    padding: 3rem 0;
+    font-size: 0.9rem;
+    background: transparent;
+
+    .content {
+        margin-top: 2rem;
+    }
+}
+
+$hljs-classes: "comment" "quote" "variable" "template" "attribute" "tag" "name" "regexp" "link" "name" "selector"
+                "selector" "number" "meta" "built_in" "builtin" "literal" "type" "params" "string" "symbol" "bullet"
+                "title" "section" "keyword" "selector" "deletion" "addition" "deletion" "addition" "emphasis" "strong";
+
+code, pre {
+    font-size: 0.85rem;
+    font-family: $family-mono;
+}
+
+figure.highlight {
+    @extend .hljs;
+    padding: 0;
+    margin: 0 0 1.5rem;
+
+    @each $class in $hljs-classes {
+        .#{$class} {
+            @extend .hljs-#{$class} !optional;
+        }
+    }
+
+    pre,
+    table tr:hover {
+        color: inherit;
+        background: transparent;
+    }
+
+    table {
+        width: auto;
+    }
+
+    pre {
+        padding: 0;
+
+        .line {
+            line-height: 1.5rem;
+        }
+    }
+
+    .gutter {
+        text-align: right;
+        background: rgba(200, 200, 200, 0.15);
+    }
+}
+
 .pagination {
     .pagination-previous,
     .pagination-next,
@@ -151,4 +209,11 @@ body {
             position: absolute;
         }
     }
+}
+
+.tag-title {
+    padding: 3rem 0 0;
+    margin-bottom: -2rem;
+    text-transform: uppercase;
+    //border-bottom: 1px solid $border-color;
 }

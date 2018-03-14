@@ -1,11 +1,22 @@
 <footer class="footer">
     <div class="container">
-        <div class="content has-text-centered">
-            <p>
-                &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>&nbsp;
-                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a
-                        href="http://github.com/ppoffice">PPOffice</a>
-            </p>
+        <hr>
+        <div class="columns content">
+            <div class="column is-narrow">
+                <p>
+                    &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>&nbsp;
+                    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                            href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
+                </p>
+            </div>
+            <div class="column has-text-right">
+                <div class="columns">
+                    <span class="column"></span>
+                    <a class="column is-narrow" href="#">GitHub</a>
+                    <a class="column is-narrow" href="#">Facebook</a>
+                    <a class="column is-narrow" href="#">Twitter</a>
+                </div>
+            </div>
         </div>
     </div>
 </footer>

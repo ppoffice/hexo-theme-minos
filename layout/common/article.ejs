@@ -23,8 +23,9 @@
         <% } %>
         <% if (!index) { %>
         <span class="column">
-            <span class="reading-time"></span>&nbsp;<%= __('article.read') %>
-            &nbsp;(<span class="word-count"></span>&nbsp;<%= __('article.words') %>)
+            <% let words = word_count(page.content); %>
+            <% let time = duration((words / 200.0) * 60, 'seconds') %>
+            <%= `${ time.humanize() + ' ' + __('article.read')} (${ words + ' ' + __('article.words') })` %>
         </span>
         <% } %>
     </div>
