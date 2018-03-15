@@ -1,15 +1,26 @@
 <meta charset="utf-8">
 <title><%= page_title(page, config.title, __) %></title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
-<% if (theme.rss){ %>
-  <link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+
+<% if (has_config('head.open_graph')) { %>
+    <%- open_graph({
+        twitter_id: get_config('head.open_graph.twitter_id', ''),
+        twitter_site: get_config('head.open_graph.twitter_site', ''),
+        google_plus: get_config('head.open_graph.google_plus', ''),
+        fb_admins: get_config('head.open_graph.fb_admins', ''),
+        fb_app_id: get_config('head.open_graph.fb_app_id', '')
+    }) %>
 <% } %>
-<% if (theme.favicon){ %>
-  <link rel="icon" href="<%- theme.favicon %>">
+
+<% if (has_config('rss')) { %>
+<link rel="alternative" href="<%- get_config('rss') %>" title="<%= config.title %>" type="application/atom+xml">
 <% } %>
+
+<% if (has_config('favicon')) { %>
+<link rel="icon" href="<%- get_config('favicon') %>">
+<% } %>
+
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ovo|Cinzel|Source+Code+Pro">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
 <%- css('css/style') %>
-<%- partial('_partial/google-analytics') %>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>

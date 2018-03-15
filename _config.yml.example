@@ -1,17 +1,18 @@
-# Header
-logo_text: # Add text logo instead of logo image
-menu:
-  About: about
-
-# Content
-excerpt_link: Read More
-toc: false #  Whether to show the table of contents in articles
-fancybox: true
-
-# Miscellaneous
-google_analytics:
 favicon: /favicon.png
+rss:
+open_graph:
+  twitter_id:
+  twitter_site:
+  google_plus:
+  fb_admins:
+  fb_app_id:
 
-# Share
-share_jia: false
-share_addthis: true
+menu:
+  Archives: /archives
+  Lifestyle: /categories/LifeStyle
+  Music: /categories/Music
+  Technology: /categories/Technology
+  About: /about
+
+search:
+    type: insight

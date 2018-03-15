@@ -8,5 +8,9 @@
     <%- body %>
     <%- partial('common/footer') %>
     <%- partial('common/scripts') %>
+
+    <% if (has_config('search.type')) { %>
+    <%- partial('search/' + get_config('search.type')) %>
+    <% } %>
 </body>
 </html>

@@ -31,7 +31,7 @@ body {
 }
 
 .article {
-    &:not(:first-child) {
+    & + .article {
         padding-top: 1.5rem;
         border-top: 1px solid $border-color;
     }
@@ -68,7 +68,7 @@ body {
         color: darkgray;
         border-bottom: 1px dotted transparent;
         &:hover {
-            border-bottom-color: black;
+            border-bottom-color: darkgray;
         }
     }
 
@@ -123,13 +123,52 @@ body {
     }
 }
 
+.archive {
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+
+    .articles {
+        border-left: 1px solid $border-color;
+    }
+
+    .article {
+        border-top: none;
+        margin-left: -1px;
+        padding: 1rem 1.5rem;
+        border-left: 3px solid transparent;
+
+        &:hover {
+            border-left-color: black;
+        }
+
+        time {
+            font-size: 0.9rem;
+            color: darkgray;
+        }
+
+        h6 {
+            margin: 0;
+            a {
+                color: inherit;
+                border-bottom: 1px dotted transparent;
+
+                &:hover {
+                    border-bottom-color: darkgray;
+                }
+            }
+        }
+    }
+}
+
 .footer {
     padding: 3rem 0;
     font-size: 0.9rem;
     background: transparent;
 
     .content {
-        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid $border-color;
     }
 }
 
@@ -217,3 +256,5 @@ figure.highlight {
     text-transform: uppercase;
     //border-bottom: 1px solid $border-color;
 }
+
+@import "insight";

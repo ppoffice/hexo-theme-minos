@@ -1,3 +1,14 @@
+<% function is_same_link(a, b) {
+    function santize(url) {
+        let paths = url.replace(/(^\w+:|^)\/\//, '').split('#')[0].split('/');
+        if (paths.length > 0 && paths[paths.length - 1].trim() === 'index.html') {
+            paths = paths.slice(0, paths.length - 1)
+        }
+        return paths.join('/');
+    }
+
+    return santize(url_for(a)) == santize(url_for(b));
+} %>
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
@@ -10,18 +21,16 @@
                 <span></span>
             </div>
         </div>
+        <% if (has_config('menu')) { %>
         <div class="navbar-menu navbar-start">
-            <% (site.categories|| []).filter(cat => !cat.parent).each(function (cat) { %>
-            <a class="navbar-item <% if (typeof(page.category) !== 'undefined' && page.category === cat.name) { %>is-active<% } %>"
-               href="<%- url_for(cat.path) %>"><%= cat.name %></a>
-            <% }) %>
-            <% for (let i in theme.menu) { let menu = theme.menu[i];%>
-            <a class="navbar-item <% if (typeof(page.anchor) !== 'undefined' && page.anchor === menu.anchor) { %>is-active<% } %>"
-               href="<%- url_for(menu.path) %>"><%= menu.name %></a>
+            <% for (let i in get_config('menu')) { let menu = get_config('menu')[i]; %>
+            <a class="navbar-item <% if (typeof(page.path) !== 'undefined' && is_same_link(menu, page.path)) { %>is-active<% } %>"
+               href="<%- url_for(menu) %>"><%= i %></a>
             <% } %>
         </div>
+        <% } %>
         <div class="navbar-menu navbar-end">
-            <a class="navbar-item" href="javascript:;">
+            <a class="navbar-item search" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             <a class="navbar-item" href="javascript:;">
