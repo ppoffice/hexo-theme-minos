@@ -15,4 +15,8 @@ menu:
   About: /about
 
 search:
-    type: insight
+  type: insight
+
+comment:
+  type: disqus
+  shortname: hexo-theme-minos

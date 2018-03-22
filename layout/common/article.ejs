@@ -1,12 +1,12 @@
 <article id="<%= post.layout %>-<%= post.slug %>" class="article content" itemscope itemprop="blogPost">
-    <h1 class="article-title" itemprop="name">
+    <h1 class="article-title is-size-4-mobile" itemprop="name">
         <% if (index) { %>
             <a href="<%- url_for(post.link ? post.link : post.path) %>" itemprop="url"><%= post.title %></a>
         <% } else { %>
             <%= post.title %>
         <% } %>
     </h1>
-    <div class="article-meta columns is-variable is-1 is-multiline is-mobile">
+    <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
             <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date) %></time>
         </span>
@@ -21,15 +21,13 @@
             }) %>
         </span>
         <% } %>
-        <% if (!index) { %>
         <span class="column is-narrow">
-            <% let words = word_count(page.content); %>
+            <% let words = word_count(post.content); %>
             <% let time = duration((words / 200.0) * 60, 'seconds') %>
             <%= `${ time.humanize() + ' ' + __('article.read')} (${ words + ' ' + __('article.words') })` %>
         </span>
-        <% } %>
     </div>
-    <div class="article-entry" itemprop="articleBody">
+    <div class="article-entry is-size-6-mobile" itemprop="articleBody">
     <% if (post.excerpt && index){ %>
         <%- post.excerpt %>
         <% if (theme.excerpt_link){ %>
@@ -63,3 +61,10 @@
     </div>
     <% } %>
 </article>
+
+<% if (!index && post.comments && has_config('comment.type')) { %>
+<div class="comments">
+    <h3 class="title is-4"><%= __('article.comments') %></h3>
+    <%- partial('comment/' + get_config('comment.type')) %>
+</div>
+<% } %>

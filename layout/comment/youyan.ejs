@@ -1,0 +1,8 @@
+<% if (!has_config('comment.uid')) { %>
+<div class="notification is-danger">
+    You forgot to set the <code>uid</code> for Youyan. Please set it in <code>_config.yml</code>.
+</div>
+<% } else { %>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=<%= get_config('comment.uid') %>"></script>
+<div id="uyan_frame"></div>
+<% } %>

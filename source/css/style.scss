@@ -38,7 +38,7 @@ body {
 
 .article {
     & + .article {
-        padding-top: 1.5rem;
+        padding-top: 2rem;
         border-top: 1px solid $border-color;
     }
 
@@ -55,13 +55,22 @@ body {
         font-size: 0.9rem;
         text-transform: uppercase;
 
+        @media screen and (max-width: 768px) {
+            margin-top: 0.75rem;
+
+            .column {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
+
         .article-category-link {
             margin: 0 0.3rem;
         }
     }
 
     .article-entry {
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         font-size: 1.1rem;
     }
 
@@ -134,6 +143,16 @@ body {
         color: darkgray;
         font-size: 0.95rem;
         text-align: center;
+    }
+}
+
+.comments {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid $border-color;
+
+    & > .title {
+        font-weight: 300;
     }
 }
 
@@ -325,10 +344,17 @@ figure.highlight {
     .pagination-previous,
     .pagination-next,
     .pagination-link {
-        border: none;
+        border: 1px solid transparent;
 
         &:active {
             box-shadow: none;
+        }
+    }
+
+
+    .pagination-link {
+        &:hover {
+            border-color: black;
         }
     }
 
