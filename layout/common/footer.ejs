@@ -7,13 +7,23 @@
                         href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
             </div>
             <div class="column is-hidden-mobile"></div>
+
+            <% if (has_config('footer_links')) { %>
             <div class="column is-narrow">
                 <div class="columns is-mobile is-multiline is-centered">
-                    <a class="column is-narrow" href="#">GitHub</a>
-                    <a class="column is-narrow" href="#">Facebook</a>
-                    <a class="column is-narrow" href="#">Twitter</a>
+                <% for (let name in get_config('footer_links')) { %>
+                    <% let link = get_config('footer_links')[name]; %>
+                <a class="column is-narrow" href="<%= typeof(link) === 'string' ? link : link.url%>">
+                    <% if (typeof(link) === 'string') { %>
+                    <%= name %>
+                    <% } else { %>
+                    <i class="fab fa-github"></i>
+                    <% } %>
+                </a>
+                <% } %>
                 </div>
             </div>
+            <% } %>
         </div>
     </div>
 </footer>

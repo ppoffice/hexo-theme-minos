@@ -2,6 +2,7 @@ common:
   archives: 'Archives'
   category: 'Category'
   tag: 'Tag'
+  read_more: 'Read More'
 nav:
   next: 'Next'
   prev: 'Prev'

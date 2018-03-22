@@ -1,5 +1,4 @@
 favicon: /favicon.png
-rss:
 open_graph:
   twitter_id:
   twitter_site:
@@ -20,3 +19,11 @@ search:
 comment:
   type: disqus
   shortname: hexo-theme-minos
+
+navbar_links:
+  GitHub:
+    icon: fab-github
+    url: https://github.com/ppoffice/hexo-theme-minos
+
+footer_links:
+  GitHub: https://github.com/ppoffice/hexo-theme-minos

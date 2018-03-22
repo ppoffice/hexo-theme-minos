@@ -30,12 +30,23 @@
         </div>
         <% } %>
         <div class="navbar-menu navbar-end">
+            <% if (has_config('search')) { %>
             <a class="navbar-item search" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
-            <a class="navbar-item" href="javascript:;">
+            <% } %>
+            <% if (has_config('navbar_links')) {
+                for (let name in get_config('navbar_links')) {
+                    let link = get_config('navbar_links')[name]; %>
+            <a class="navbar-item" href="<%= typeof(link) === 'string' ? link : link.url%>">
+                <% if (typeof(link) === 'string') { %>
+                <%= name %>
+                <% } else { %>
                 <i class="fab fa-github"></i>
+                <% } %>
             </a>
+               <% } %>
+            <% } %>
         </div>
     </div>
 </nav>
