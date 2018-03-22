@@ -16,18 +16,24 @@ body {
 }
 
 .navbar-main {
-    transition: 0.1s ease-in;
     border-bottom: 1px solid $border-color;
+
+    .navbar-item {
+        text-align: center;
+    }
 
     a.navbar-item.is-active {
         color: #3273dc;
     }
-}
 
-.navbar-category {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    text-transform: uppercase;
+    @media screen and (max-width: 1023px) {
+        .navbar-end {
+            text-align: center;
+            .navbar-item {
+                display: inline-block;
+            }
+        }
+    }
 }
 
 .article {
@@ -48,10 +54,6 @@ body {
     .article-meta {
         font-size: 0.9rem;
         text-transform: uppercase;
-
-        .column:not(:first-child) {
-            margin-left: -.75rem;
-        }
 
         .article-category-link {
             margin: 0 0.3rem;
@@ -103,14 +105,26 @@ body {
             }
         }
 
-        .article-nav-next a {
-            padding-right: 1rem;
+        .article-nav-next {
+            text-align: right;
 
-            &:after {
-                top: 0;
-                right: 0;
-                content: '>';
-                position: absolute;
+            a {
+                padding-right: 1rem;
+
+                &:after {
+                    top: 0;
+                    right: 0;
+                    content: '>';
+                    position: absolute;
+                }
+            }
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .article-nav-prev,
+            .article-nav-next {
+                text-align: center;
             }
         }
     }
@@ -306,6 +320,8 @@ figure.highlight {
 }
 
 .pagination {
+    margin: 0 -1em;
+
     .pagination-previous,
     .pagination-next,
     .pagination-link {
@@ -320,18 +336,28 @@ figure.highlight {
         background-color: black;
     }
 
-    .pagination-previous {
+    .pagination-previous a,
+    .pagination-next a {
+        position: relative;
+        color: inherit;
+    }
+
+    .pagination-previous a {
+        padding-left: 1rem;
+
         &:before {
-            top: calc(.375em - 1px);
+            top: 0;
             left: 0;
             content: '<';
             position: absolute;
         }
     }
 
-    .pagination-next {
-        &:before {
-            top: calc(.375em - 1px);
+    .pagination-next a {
+        padding-right: 1rem;
+
+        &:after {
+            top: 0;
             right: 0;
             content: '>';
             position: absolute;

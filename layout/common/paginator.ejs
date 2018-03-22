@@ -32,9 +32,13 @@ function pagination(c, m) {
     return elements;
 } %>
 <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-    <a class="pagination-previous<%= page.current > 1 ? '' : ' is-invisible' %>" href="<%= link_url(page.current - 1) %>"><%= __('nav.prev') %></a>
-    <a class="pagination-next<%= page.current < page.total ? '' : ' is-invisible' %>" href="<%= link_url(page.current + 1) %>"><%= __('nav.next') %></a>
-    <ul class="pagination-list">
+    <div class="pagination-previous<%= page.current > 1 ? '' : ' is-invisible is-hidden-mobile' %>">
+        <a href="<%= link_url(page.current - 1) %>"><%= __('nav.prev') %></a>
+    </div>
+    <div class="pagination-next<%= page.current < page.total ? '' : ' is-invisible is-hidden-mobile' %>">
+        <a href="<%= link_url(page.current + 1) %>"><%= __('nav.next') %></a>
+    </div>
+    <ul class="pagination-list is-hidden-mobile">
         <% pagination(page.current, page.total).forEach(element => { %>
         <%- element %>
         <% }) %>
