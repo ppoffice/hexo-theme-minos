@@ -10,6 +10,8 @@ article:
   words: 'words'
   comments: 'Comments'
   contents: 'Contents'
+search:
+  hint: 'Type something...'
 insight:
   hint: 'Type something...'
   posts: 'Posts'
