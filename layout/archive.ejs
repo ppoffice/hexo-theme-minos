@@ -18,7 +18,7 @@
             <% for (let post of groups[year].sort((a, b) => b.date.diff(a.date))) { %>
                 <div class="article content>">
                     <time class="is-text-small" datetime="<%= date_xml(post.date) %>" itemprop="datePublished">
-                        <%= post.date.format('MMM D') %></time>
+                        <%= format_date(post.date) %></time>
                     <h6 class="title is-6"><a href="<%= url_for(post.link ? post.link : post.path) %>"><%= post.title %></a></h6>
                 </div>
             <% } %>

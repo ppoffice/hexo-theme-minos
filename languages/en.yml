@@ -8,6 +8,7 @@ nav:
   prev: 'Prev'
 article:
   read: 'read'
+  about: 'About'
   words: 'words'
   comments: 'Comments'
   contents: 'Contents'

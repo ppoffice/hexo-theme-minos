@@ -1,9 +1,7 @@
 <% if (has_config('comment.shortname')) { %>
 <script>
     var disqus_config = function () {
-        <% if (page.path) { %>
-            this.page.url = '<%= page.path %>';
-        <% } %>
+        this.page.url = '<%= page.permalink %>';
         this.page.identifier = '<%= page.disqusId || page.slug %>';
     };
     (function() { 

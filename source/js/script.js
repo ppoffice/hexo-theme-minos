@@ -1,4 +1,6 @@
 (function ($) {
+    moment.locale(window.__LANG__);
+
     $('.article-entry').each(function(i) {
         $(this).find('img').each(function() {
             if (this.alt) {
@@ -18,10 +20,10 @@
     });
 
     // Hide Header on on scroll down
-    let didScroll;
-    let lastScrollTop = 0;
-    let delta = 5;
-    let navbarHeight = $('.navbar-main').outerHeight();
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $('.navbar-main').outerHeight();
 
     $(window).scroll(function(event){
         didScroll = true;

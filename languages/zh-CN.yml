@@ -1,6 +1,23 @@
+common:
+  archives: '归档'
+  category: '分类'
+  tag: '标签'
+  read_more: '阅读更多'
 nav:
   next: '下一页'
   prev: '上一页'
 article:
+  read: '读完'
+  about: '约'
+  words: '字'
   comments: '评论'
-  contents: '目录'
+  contents: 'Contents'
+search:
+  hint: '站内搜索'
+insight:
+  hint: '站内搜索'
+  posts: '文章'
+  pages: '页面'
+  categories: '分类'
+  tags: '标签'
+  untitled: '(无标题)'

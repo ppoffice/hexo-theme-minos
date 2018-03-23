@@ -1,6 +1,6 @@
-$family-serif: "Ovo", "Georgia", serif;
+$family-serif: "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei", serif;
+$family-mono: "Source Code Pro", monospace, "Microsoft YaHei";
 $border-color: #dbdbdb;
-$family-mono: "Source Code Pro", monospace;
 
 @import "../../../../node_modules/highlight.js/styles/atom-one-light";
 
@@ -71,7 +71,6 @@ body {
 
     .article-entry {
         margin-bottom: 3rem;
-        font-size: 1.1rem;
     }
 
     .article-more-link a {
@@ -336,6 +335,21 @@ figure.highlight {
         text-align: right;
         background: rgba(200, 200, 200, 0.15);
     }
+
+    .tag,
+    .title,
+    .number {
+        display: inherit;
+        font: inherit;
+        margin: inherit;
+        padding: inherit;
+        background: inherit;
+        height: inherit;
+        text-align: inherit;
+        vertical-align: inherit;
+        min-width: inherit;
+        border-radius: inherit;
+    }
 }
 
 .pagination {
@@ -391,10 +405,15 @@ figure.highlight {
     }
 }
 
+.category-title,
 .tag-title {
     padding: 3rem 0 0;
     margin-bottom: -2rem;
     text-transform: uppercase;
+
+    h5 > svg {
+        margin-right: 0.5rem;
+    }
 }
 
 @import "insight";

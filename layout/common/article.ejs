@@ -1,5 +1,5 @@
 <article id="<%= post.layout %>-<%= post.slug %>" class="article content" itemscope itemprop="blogPost">
-    <h1 class="article-title is-size-4-mobile" itemprop="name">
+    <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         <% if (index) { %>
             <a href="<%- url_for(post.link ? post.link : post.path) %>" itemprop="url"><%= post.title %></a>
         <% } else { %>
@@ -22,9 +22,9 @@
         </span>
         <% } %>
         <span class="column is-narrow">
-            <% let words = word_count(post.content); %>
-            <% let time = duration((words / 200.0) * 60, 'seconds') %>
-            <%= `${ time.humanize() + ' ' + __('article.read')} (${ words + ' ' + __('article.words') })` %>
+            <% let words = word_count(post._content); %>
+            <% let time = duration((words / 150.0) * 60, 'seconds') %>
+            <%= `${ time.humanize() } ${ __('article.read')} (${ __('article.about') } ${ words } ${ __('article.words') })` %>
         </span>
     </div>
     <div class="article-entry is-size-6-mobile" itemprop="articleBody">
