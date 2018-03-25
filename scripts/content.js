@@ -4,25 +4,24 @@ moment.locale(hexo.config.language);
 /**
  * Generate html head title based on page type
  */
-hexo.extend.helper.register('page_title', (page, site_title, __) => {
-    const { is_archive, is_category, is_tag, is_month, is_year } = require('./builtin')(hexo, { page });
-
+hexo.extend.helper.register('page_title', function () {
+    const page = this.page;
     let title = page.title;
 
-    if (is_archive()) {
-        title = __('common.archives');
-        if (is_month()) {
+    if (this.is_archive()) {
+        title = this.__('common.archives');
+        if (this.is_month()) {
             title += ': ' + page.year + '/' + page.month;
-        } else if (is_year()) {
+        } else if (this.is_year()) {
             title += ': ' + page.year;
         }
-    } else if (is_category()) {
-        title = __('common.category') + ': ' + page.category;
-    } else if (is_tag()) {
-        title = __('common.tag') + ': ' + page.tag;
+    } else if (this.is_category()) {
+        title = this.__('common.category') + ': ' + page.category;
+    } else if (this.is_tag()) {
+        title = this.__('common.tag') + ': ' + page.tag;
     }
 
-    return [title, site_title].filter(str => typeof(str) !== 'undefined' && str.trim() !== '').join(' - ');
+    return [title, hexo.config.title].filter(str => typeof(str) !== 'undefined' && str.trim() !== '').join(' - ');
 });
 
 /**
