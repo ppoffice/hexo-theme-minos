@@ -18,6 +18,10 @@ menu:
 search:
   type: insight
 
+share:
+  type: sharethis
+  install_url:
+
 comment:
   type: disqus
   shortname: hexo-theme-minos
