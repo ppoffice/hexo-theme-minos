@@ -1,4 +1,4 @@
-<article id="<%= post.layout %>-<%= post.slug %>" class="article content" itemscope itemprop="blogPost">
+<article class="article content" itemscope itemprop="blogPost">
     <h1 class="article-title is-size-3 is-size-4-mobile" itemprop="name">
         <% if (index) { %>
             <a href="<%- url_for(post.link ? post.link : post.path) %>" itemprop="url"><%= post.title %></a>
@@ -31,7 +31,7 @@
     <% if (post.excerpt && index){ %>
         <%- post.excerpt %>
         <p class="article-more-link">
-            <a href="<%- url_for(post.path) %>#more"><%= __('common.read_more') %></a>
+            <a href="<%- url_for(post.path) %>#more"><%= __('article.read_more') %></a>
         </p>
     <% } else { %>
         <%- post.content %>

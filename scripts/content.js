@@ -1,4 +1,6 @@
+const _ = require('underscore');
 const moment = require('moment');
+const cheerio = require('cheerio');
 moment.locale(hexo.config.language);
 
 /**
@@ -45,4 +47,31 @@ hexo.extend.helper.register('word_count', (content) => {
  */
 hexo.extend.helper.register('duration', (...arguments) => {
     return moment.duration.apply(null, arguments);
+});
+
+/**
+ * Export a list of headings of an article
+ * [
+ *     ['1', 'heading-anchor-1', 'Title of the heading 1'],
+ *     ['1.1', 'heading-anchor-1-1', 'Title of the heading 1.1'],
+ * ]
+ */
+hexo.extend.helper.register('toc_list', (content) => {
+    const $ = cheerio.load(content);
+    const levels = [0, 0, 0];
+    const headings = $(['h1', 'h2', 'h3'].join(','));
+
+    const tocList = [];
+    headings.each(function () {
+        const level = +this.name[1];
+        const id = $(this).attr('id');
+        const text = _.escape($(this).text());
+
+        levels[level - 1] += 1;
+        for (let i = level; i < levels.length; i++) {
+            levels[i] = 0;
+        }
+        tocList.push([levels.slice(0, level).join('.'), id, text]);
+    });
+    return tocList;
 });

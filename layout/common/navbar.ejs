@@ -39,6 +39,23 @@
                 <i class="fas fa-search"></i>
             </a>
             <% } %>
+            <% if (has_config('toc') && get_config('toc') === true) { %>
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only">
+                <a class="navbar-item toc">
+                    <i class="fa fa-list"></i>
+                </a>
+                <div class="navbar-dropdown is-right">
+                <% let lastHeading = null; %>
+                <% for (let heading of toc_list(page.content)) { %>
+                    <% if (lastHeading !== null && heading[0].split('.')[0] !== lastHeading) { %>
+                    <hr class="navbar-divider">
+                    <% } %>
+                    <% lastHeading = heading[0].split('.')[0]; %>
+                    <a class="navbar-item" href="#<%= heading[1] %>"><%- `${ heading[0] } ${ heading[2] }` %></a>
+                <% } %>
+                </div>
+            </div>
+            <% } %>
             <% if (has_config('navbar_links')) {
                 for (let name in get_config('navbar_links')) {
                     let link = get_config('navbar_links')[name]; %>

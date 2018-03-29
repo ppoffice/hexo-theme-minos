@@ -2,16 +2,16 @@ common:
   archives: '归档'
   category: '分类'
   tag: '标签'
-  read_more: '阅读更多'
 nav:
   next: '下一页'
   prev: '上一页'
 article:
+  read_more: '阅读更多'
   read: '读完'
   about: '约'
   words: '字'
   comments: '评论'
-  contents: 'Contents'
+  contents: '目录'
 search:
   hint: '站内搜索'
 insight:

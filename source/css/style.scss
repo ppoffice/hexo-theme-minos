@@ -17,6 +17,7 @@ body {
 
 .navbar-main {
     border-bottom: 1px solid $border-color;
+    transition: 0.1s ease-in;
 
     .navbar-item {
         text-align: center;
@@ -24,15 +25,6 @@ body {
 
     a.navbar-item.is-active {
         color: #3273dc;
-    }
-
-    @media screen and (max-width: 1023px) {
-        .navbar-end {
-            text-align: center;
-            .navbar-item {
-                display: inline-block;
-            }
-        }
     }
 }
 
