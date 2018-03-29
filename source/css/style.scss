@@ -13,6 +13,10 @@ body {
         max-width: 800px;
         width: 800px;
     }
+
+    .navbar.is-transparent .navbar-dropdown a.navbar-item:hover {
+        color: #3273dc;
+    }
 }
 
 .navbar-main {
