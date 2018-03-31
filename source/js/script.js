@@ -1,14 +1,6 @@
 (function ($) {
     moment.locale(window.__LANG__);
 
-    $('.article-entry').each(function(i) {
-        $(this).find('img').each(function() {
-            if (this.alt) {
-                $(this).after('<span class="caption">' + this.alt + '</span>');
-            }
-        });
-    });
-
     $('.article-meta time').each(function (i) {
         $(this).text(moment($(this).text()).fromNow())
     });
@@ -71,4 +63,16 @@
 
         lastScrollTop = st;
     }
+
+    $('.lightgallery img').each(function () {
+        // wrap images with link and add caption if possible
+        if ($(this).parent('a').length === 0) {
+            $(this).wrap('<a class="gallery-item" href="' + $(this).attr('src') + '"></a>');
+            if (this.alt) {
+                $(this).after('<div class="caption">' + this.alt + '</div>');
+            }
+        }
+    });
+    $('.lightgallery').lightGallery({ selector: '.gallery-item' });
+    $('.justified-gallery').justifiedGallery();
 })(jQuery);
