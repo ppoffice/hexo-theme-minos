@@ -1,3 +1,4 @@
 [submodule "themes/minos"]
 	path = themes/minos
 	url = https://github.com/ppoffice/hexo-theme-minos.git
+	branch = dev
