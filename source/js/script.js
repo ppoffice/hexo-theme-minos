@@ -64,7 +64,7 @@
         lastScrollTop = st;
     }
 
-    $('.lightgallery img').each(function () {
+    $('.article.gallery img').each(function () {
         // wrap images with link and add caption if possible
         if ($(this).parent('a').length === 0) {
             $(this).wrap('<a class="gallery-item" href="' + $(this).attr('src') + '"></a>');
@@ -73,6 +73,10 @@
             }
         }
     });
-    $('.lightgallery').lightGallery({ selector: '.gallery-item' });
-    $('.justified-gallery').justifiedGallery();
+    if (typeof($.fn.lightGallery) === 'function') {
+        $('.article.gallery').lightGallery({ selector: '.gallery-item' });
+    }
+    if (typeof($.fn.justifiedGallery) === 'function') {
+        $('.justified-gallery').justifiedGallery();
+    }
 })(jQuery);

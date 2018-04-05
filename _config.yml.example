@@ -26,6 +26,10 @@ comment:
   type: disqus
   shortname: hexo-theme-minos
 
+plugins:
+  mathjax: true
+  gallery: true
+
 navbar_links:
   GitHub:
     icon: fab-github

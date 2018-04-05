@@ -22,7 +22,11 @@
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+<% if (!(has_config('plugins.gallery') && get_config('plugins.gallery') === false)) { %>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.5/css/justifiedGallery.min.css">
+<% } %>
+
 <%- css('css/style') %>
 <script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
