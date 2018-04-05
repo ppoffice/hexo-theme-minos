@@ -48,7 +48,7 @@ body {
     }
 
     .article-meta {
-        font-size: 0.9rem;
+        font-size: .9rem;
         text-transform: uppercase;
 
         @media screen and (max-width: 768px) {
@@ -70,7 +70,7 @@ body {
     }
 
     .article-more-link a {
-        font-size: 0.9rem;
+        font-size: .9rem;
         color: darkgray;
         border-bottom: 1px dotted transparent;
         &:hover {
@@ -136,8 +136,138 @@ body {
     .caption {
         display: block;
         color: darkgray;
-        font-size: 0.95rem;
+        font-size: .95rem;
         text-align: center;
+    }
+
+    a[target="_blank"] {
+        &:after {
+            display: none;
+            content: "\f35d";
+            font-size: .8rem;
+            font-family: "Font Awesome 5 Solid";
+        }
+
+        .fa-external-link-alt {
+            margin-left: .3rem;
+            width: .8rem;
+        }
+    }
+
+    blockquote {
+        &.colorquote {
+            position: relative;
+
+            &:before {
+                content: " ";
+                position: absolute;
+
+                top: 50%;
+                left: -14.5px;
+                margin-top: -12px;
+                width: 24px;
+                height: 24px;
+
+                border-radius: 50%;
+                text-align: center;
+
+                color: white;
+                background-size: 16px 16px;
+                background-position: 4px 4px;
+                background-repeat: no-repeat;
+            }
+
+            &.info {
+                border-color: hsl(204, 86%, 53%);
+                background-color: lighten(hsl(204, 86%, 53%), 40%);
+
+                &:before {
+                    background-color: hsl(204, 86%, 53%);
+                    background-image: url("../images/info.svg");
+                }
+            }
+
+            &.success {
+                border-color: hsl(141, 71%, 48%);
+                background-color: lighten(hsl(141, 71%, 48%), 40%);
+
+                &:before {
+                    background-color: hsl(141, 71%, 48%);
+                    background-image: url("../images/check.svg");
+                }
+            }
+
+            &.warning {
+                border-color: hsl(48, 100%, 67%);
+                background-color: lighten(hsl(48, 100%, 67%), 24%);
+
+                &:before {
+                    background-color: hsl(48, 100%, 67%);
+                    background-image: url("../images/question.svg");
+                }
+            }
+
+            &.danger {
+                border-color: hsl(348, 100%, 61%);
+                background-color: lighten(hsl(348, 100%, 61%), 24%);
+
+                &:before {
+                    background-color: hsl(348, 100%, 61%);
+                    background-image: url("../images/exclamation.svg");
+                }
+            }
+        }
+
+        &.pullquote {
+            float: right;
+            max-width: 50%;
+            font-size: 1.15rem;
+            position: relative;
+
+            @media screen and (max-width: 768px) {
+                float: none;
+                max-width: 100%;
+            }
+
+            &:before {
+                content: " ";
+
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                width: 3rem;
+                height: 3rem;
+
+                opacity: 0.1;
+                background: url("../images/quote-left.svg") 0 0/3rem 3rem no-repeat;
+            }
+        }
+
+        footer {
+            cite {
+                font-style: normal;
+
+                &:before {
+                    content: "—";
+                    padding: 0 .3em;
+                }
+            }
+        }
+    }
+
+    .gist {
+        table {
+            tr:hover {
+                background: transparent;
+            }
+            td {
+                border: none;
+            }
+        }
+
+        .file {
+            all: initial;
+        }
     }
 }
 
@@ -175,7 +305,7 @@ body {
         }
 
         time {
-            font-size: 0.9rem;
+            font-size: .9rem;
             color: darkgray;
         }
 
@@ -195,7 +325,7 @@ body {
 
 .footer {
     padding: 3rem 0;
-    font-size: 0.9rem;
+    font-size: .9rem;
     background: transparent;
 
     .content {
@@ -305,6 +435,7 @@ code, pre {
 figure.highlight {
     @extend .hljs;
     padding: 0;
+    width: 100%;
     margin: 0 0 1.5rem;
 
     @each $class in $hljs-classes {
@@ -331,9 +462,30 @@ figure.highlight {
         }
     }
 
+    figcaption,
+    .gutter {
+        background: rgba(200, 200, 200, 0.15);
+    }
+
+    figcaption {
+        padding: .3em .75em;
+        text-align: left;
+        font-style: normal;
+        font-size: .8rem;
+
+        span {
+            font-weight: 500;
+            font-family: $family-mono;
+        }
+
+        a {
+            float: right;
+            color: #9a9a9a;
+        }
+    }
+
     .gutter {
         text-align: right;
-        background: rgba(200, 200, 200, 0.15);
     }
 
     .tag,
