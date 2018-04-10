@@ -23,6 +23,11 @@ body {
     border-bottom: 1px solid $border-color;
     transition: 0.1s ease-in;
 
+    .navbar-logo {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
     .navbar-item {
         text-align: center;
     }
@@ -67,6 +72,16 @@ body {
 
     .article-entry {
         margin-bottom: 3rem;
+        h1, h2, h3, h4, h5, h6 {
+            cursor: pointer;
+            position: relative;
+
+            &:hover:before {
+                content: '#';
+                position: absolute;
+                right: 100%;
+            }
+        }
     }
 
     .article-more-link a {

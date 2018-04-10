@@ -29,6 +29,8 @@ comment:
 plugins:
   mathjax: true
   gallery: true
+  google-analytics:
+    tracking_id:
 
 navbar_links:
   GitHub:

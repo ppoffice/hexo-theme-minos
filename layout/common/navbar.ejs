@@ -12,9 +12,13 @@
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item" href="<%- url_for('/') %>">
+            <a class="navbar-item navbar-logo" href="<%- url_for('/') %>">
                 <% if (has_config('logo') && get_config('logo')) { %>
-                <img src="<%- url_for(get_config('logo')) %>" alt="" height="28">
+                    <% if (has_config('logo.text') && get_config('logo.text')) { %>
+                    <%= get_config('logo.text') %>
+                    <% } else { %>
+                    <img src="<%- url_for(get_config('logo')) %>" alt="" height="28">
+                    <% } %>
                 <% } else { %>
                 <img src="<%- url_for('images/logo.png') %>" alt="" height="28">
                 <% } %>

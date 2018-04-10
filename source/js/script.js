@@ -1,5 +1,4 @@
 (function ($) {
-    moment.locale(window.__LANG__);
 
     $('.article-meta time').each(function (i) {
         $(this).text(moment($(this).text()).fromNow())
@@ -73,10 +72,10 @@
             }
         }
     });
-    if (typeof($.fn.lightGallery) === 'function') {
-        $('.article.gallery').lightGallery({ selector: '.gallery-item' });
-    }
-    if (typeof($.fn.justifiedGallery) === 'function') {
-        $('.justified-gallery').justifiedGallery();
-    }
+
+    $('.article-entry').find('h1, h2, h3, h4, h5, h6').on('click', function () {
+        if ($(this).get(0).id) {
+            window.location.hash = $(this).get(0).id;
+        }
+    });
 })(jQuery);
