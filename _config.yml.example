@@ -24,7 +24,7 @@ share:
 
 comment:
   type: disqus
-  shortname: hexo-theme-minos
+  shortname:
 
 plugins:
   mathjax: true

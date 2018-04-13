@@ -1,7 +1,6 @@
 const _ = require('underscore');
 const moment = require('moment');
 const cheerio = require('cheerio');
-moment.locale(hexo.config.language);
 
 /**
  * Generate html head title based on page type
@@ -29,8 +28,33 @@ hexo.extend.helper.register('page_title', function () {
 /**
  * Format date to string without year.
  */
-hexo.extend.helper.register('format_date', (date) => {
+hexo.extend.helper.register('format_date', function (date) {
+    if (date instanceof moment) {
+        date = moment(date).locale(this.page.lang || hexo.config.language);
+    } else {
+        moment.locale(this.page.lang || hexo.config.language);
+    }
     return moment(date).format('MMM D');
+});
+
+/**
+ * Export moment.duration
+ */
+hexo.extend.helper.register('duration', function (...arguments) {
+    moment.locale(this.page.lang || hexo.config.language);
+    return moment.duration.apply(null, arguments);
+});
+
+/**
+ * Get the difference between the page date time from now
+ */
+hexo.extend.helper.register('from_now', function (date = null) {
+    if (date instanceof moment) {
+        date = moment(date).locale(this.page.lang || hexo.config.language);
+    } else {
+        moment.locale(this.page.lang || hexo.config.language);
+    }
+    return moment(date || this.page.date).fromNow();
 });
 
 /**
@@ -40,13 +64,6 @@ hexo.extend.helper.register('word_count', (content) => {
     content = content.replace(/<\/?[a-z][^>]*>/gi, '');
     content = content.trim();
     return content ? (content.match(/[\u00ff-\uffff]|[a-zA-Z]+/g) || []).length : 0;
-});
-
-/**
- * Export moment.duration
- */
-hexo.extend.helper.register('duration', (...arguments) => {
-    return moment.duration.apply(null, arguments);
 });
 
 /**

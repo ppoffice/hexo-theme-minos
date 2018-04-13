@@ -1,9 +1,4 @@
 (function ($) {
-
-    $('.article-meta time').each(function (i) {
-        $(this).text(moment($(this).text()).fromNow())
-    });
-
     $('.navbar-burger').click(function () {
         $(this).toggleClass('is-active');
         $('.navbar-main .navbar-start').toggleClass('is-active');
