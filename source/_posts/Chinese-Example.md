@@ -1,5 +1,6 @@
 title: 中文测试
 date: 2015-01-26 21:55:37
+lang: zh-cn
 tags:
 ---
 ## 桃花源记
@@ -39,7 +40,3 @@ tags:
 -  i=0
 -}
 ```
-
-<div style="height: 0;padding-bottom: 56%;position: relative;">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-YGDyPAwQz0" frameborder="0" allowfullscreen="" style="position: absolute;height: 100%;width: 100%;"></iframe>
-</div>
