@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
-const themeRoot = path.join(__dirname, '..');
 const altConfigs = {};
+const themeRoot = path.join(__dirname, '..');
 
 /**
  * Theme configuration helper.
