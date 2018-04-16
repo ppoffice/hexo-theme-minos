@@ -27,6 +27,7 @@ const missingDeps = [
     'cheerio',
     'js-yaml',
     'underscore',
+    'highlight.js',
     'hexo-generator-archive',
     'hexo-generator-category',
     'hexo-generator-index',

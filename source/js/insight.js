@@ -217,14 +217,22 @@
         $input.trigger('input');
     });
 
-
+    var touch = false;
     $(document).on('click focus', '.navbar-main .search', function () {
         $main.addClass('show');
         $main.find('.ins-search-input').focus();
-    }).on('click', '.ins-search-item', function () {
+    }).on('click touchend', '.ins-search-item', function (e) {
+        if (e.type !== 'click' && !touch) {
+            return;
+        }
         gotoLink($(this));
-    }).on('click', '.ins-close', function () {
+        touch = false;
+    }).on('click touchend', '.ins-close', function (e) {
+        if (e.type !== 'click' && !touch) {
+            return;
+        }
         $main.removeClass('show');
+        touch = false;
     }).on('keydown', function (e) {
         if (!$main.hasClass('show')) return;
         switch (e.keyCode) {
@@ -237,5 +245,9 @@
             case 13: //ENTER
                 gotoLink($container.find('.ins-selectable.active').eq(0)); break;
         }
+    }).on('touchstart', function (e) {
+        touch = true;
+    }).on('touchmove', function (e) {
+        touch = false;
     });
 })(jQuery, window.INSIGHT_CONFIG);

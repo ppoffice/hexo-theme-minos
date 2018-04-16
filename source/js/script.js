@@ -58,7 +58,7 @@
         lastScrollTop = st;
     }
 
-    $('.article.gallery img').each(function () {
+    $('.article.gallery img:not(".not-gallery-item")').each(function () {
         // wrap images with link and add caption if possible
         if ($(this).parent('a').length === 0) {
             $(this).wrap('<a class="gallery-item" href="' + $(this).attr('src') + '"></a>');

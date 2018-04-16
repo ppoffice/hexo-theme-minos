@@ -571,14 +571,20 @@ figure.highlight {
     }
 }
 
-.category-title,
-.tag-title {
-    padding: 3rem 0 0;
-    margin-bottom: -2rem;
-    text-transform: uppercase;
+.section-heading {
+    padding-bottom: 0;
 
-    h5 > svg {
-        margin-right: 0.5rem;
+    h5 {
+        margin-bottom: 0;
+        text-transform: uppercase;
+
+        & > svg {
+            margin-right: 0.5rem;
+        }
+    }
+
+    & + .section {
+        padding-top: 2rem;
     }
 }
 

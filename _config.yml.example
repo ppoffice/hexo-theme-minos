@@ -8,6 +8,9 @@ open_graph:
 
 logo:
 
+article:
+  readtime: true
+
 menu:
   Archives: /archives
   Lifestyle: /categories/LifeStyle
