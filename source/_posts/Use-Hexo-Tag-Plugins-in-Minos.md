@@ -6,7 +6,10 @@ tags:
 - Minos
 - Plugin
 ---
-> Most of the following content is directly copy from [Hexo official documentation](https://hexo.io/docs/tag-plugins.html).
+
+{% colorquote info %}
+Most of the following content is directly copied from <a href="https://hexo.io/docs/tag-plugins.html">Hexo official documentation</a>
+{% endcolorquote %}
 
 Tag plugins are different from post tags. They are ported from Octopress and provide a useful way for you to quickly add specific content to your posts.
 <!-- more -->
