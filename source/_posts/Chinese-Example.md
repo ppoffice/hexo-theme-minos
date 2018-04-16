@@ -17,26 +17,3 @@ tags:
 　　既出，得其船，便扶向路，处处志之。及郡下，诣太守，说如此。太守即遣人随其往，寻向所志，遂迷，不复得路。
 
 　　南阳刘子骥，高尚士也，闻之，欣然规往。未果，寻病终，后遂无问津者。
-
-```diff
-=== modified file 'support-files/mysql.server.sh'
---- support-files/mysql.server.sh   2013-07-16 17:09:54 +0000
-+++ support-files/mysql.server.sh   2014-02-17 10:10:30 +0000
-@@ -147,68 +147,12 @@
-            datadir_set=1
-    ;;
-       --pid-file=*) mysqld_pid_file_path=`echo "$arg" | sed -e 's/^[^=]*=//'` ;;
-+      --socket=*) socket=`echo "$arg" | sed -e 's/^[^=]*=//'` ;;
-       --service-startup-timeout=*) service_startup_timeout=`echo "$arg" | sed -e 's/^[^=]*=//'` ;;
-     esac
-   done
- }
-
--wait_for_pid () {
--  verb="$1"           # created | removed
--  pid="$2"            # process ID of the program operating on the pid-file
--  pid_file_path="$3" # path to the PID file.
--
--  i=0
--}
-```

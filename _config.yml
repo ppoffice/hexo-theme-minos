@@ -73,3 +73,9 @@ deploy:
   type: git
   repository: git@github.com:ppoffice/hexo-theme-minos.git
   branch: gh-pages
+
+marked:
+  gfm: false
+
+githubEmojis:
+  className: not-gallery-item

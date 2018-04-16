@@ -4,7 +4,7 @@ categories:
 - Documentation
 tags:
 - Minos
-- Tags
+- Plugin
 ---
 > Most of the following content is directly copy from [Hexo official documentation](https://hexo.io/docs/tag-plugins.html).
 
