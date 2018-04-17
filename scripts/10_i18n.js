@@ -1,4 +1,4 @@
-const _ = require('underscore');
+const _ = require('lodash');
 const util = require('hexo-util');
 const postGenerator = require('hexo/lib/plugins/generator/post');
 const indexGenerator = require('hexo-generator-index/lib/generator');
@@ -105,7 +105,7 @@ hexo.extend.generator.register('index', withLanguage(function(languages, locals)
                 data: data
             });
         });
-    }).filter(post => post !== null), true);
+    }).filter(post => post !== null));
 }));
 
 /**
@@ -136,7 +136,7 @@ hexo.extend.generator.register('archive', withLanguage(function(languages, local
                 data: data
             });
         });
-    }).filter(post => post !== null), true);
+    }).filter(post => post !== null));
 }));
 
 /**
@@ -176,7 +176,7 @@ hexo.extend.generator.register('category', withLanguage(function(languages, loca
                 data: data
             });
         });
-    }).filter(post => post !== null), true);
+    }).filter(post => post !== null));
 }));
 
 /**
@@ -217,7 +217,7 @@ hexo.extend.generator.register('tag', withLanguage(function(languages, locals) {
                 data: data
             });
         });
-    }).filter(post => post !== null), true);
+    }).filter(post => post !== null));
 }));
 
 /**
@@ -316,7 +316,6 @@ hexo.extend.generator.register('insight', withLanguage(function(languages, local
  */
 hexo.extend.filter.register('before_post_render', function(data) {
     data.lang = getPostLanguage(data);
-    data._striped_path = data.path.startsWith(data.lang) ? data.path.slice(data.lang.length + 1) : data.path;
     data._categories = data.categories ? data.categories.map(category => {
         return {
             name: category.name,
@@ -330,4 +329,11 @@ hexo.extend.filter.register('before_post_render', function(data) {
         };
     }) : [];
     return data;
+});
+
+hexo.extend.helper.register('i18n_path', function (language) {
+    const path = this.page.path;
+    const lang = getPostLanguage(this.page);
+    const base = path.startsWith(lang) ? path.slice(lang.length + 1) : path;
+    return (language ? '/' + language : '') + '/' + base;
 });

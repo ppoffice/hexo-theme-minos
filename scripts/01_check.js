@@ -24,9 +24,9 @@ function checkDependency(name) {
 logger.info('Checking dependencies');
 const missingDeps = [
     'moment',
+    'lodash',
     'cheerio',
     'js-yaml',
-    'underscore',
     'highlight.js',
     'hexo-util',
     'hexo-generator-archive',
