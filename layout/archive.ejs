@@ -2,7 +2,7 @@
     <div class="container">
     <% const groups = {};
     const years = [];
-    site.posts.each(post => {
+    page.posts.each(post => {
         const year = post.date.year();
         if (typeof(groups[year]) === 'undefined') {
             groups[year] = [];
@@ -24,6 +24,9 @@
             <% } %>
             </div>
         </div>
+    <% } %>
+    <% if (page.total > 1) { %>
+    <%- partial('common/paginator') %>
     <% } %>
     </div>
 </section>

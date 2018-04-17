@@ -13,12 +13,9 @@
         <% if (post.categories && post.categories.length){ %>
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <%- list_categories(post.categories, {
-                show_count: false,
-                class: 'article-category',
-                style: 'none',
-                separator: '<span>></span>'
-            }) %>
+            <%- post._categories.map(category =>
+                    `<a class="article-category-link" href="${url_for(category.path)}">${category.name}</a>`)
+                    .join('<span>></span>') %>
         </span>
         <% } %>
         <% if (!has_config('article.readtime') || get_config('article.readtime') === true) { %>
@@ -41,7 +38,7 @@
     </div>
     <% if (!index && post.tags && post.tags.length){ %>
     <div class="columns is-multiline is-mobile article-tags">
-    <% post.tags.forEach(tag => { %>
+    <% (post._tags || post.tags).forEach(tag => { %>
         <span class="column is-narrow"><a href="<%- url_for(tag.path) %>">#<%= tag.name %></a></span>
     <% }) %>
     </div>
