@@ -4,7 +4,7 @@ $border-color: #dbdbdb;
 
 @import "../../../../node_modules/highlight.js/styles/atom-one-light";
 
-body {
+body, button, input, select, textarea {
     font-family: $family-serif;
 }
 

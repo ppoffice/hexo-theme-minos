@@ -28,6 +28,7 @@ const missingDeps = [
     'js-yaml',
     'underscore',
     'highlight.js',
+    'hexo-util',
     'hexo-generator-archive',
     'hexo-generator-category',
     'hexo-generator-index',
@@ -39,11 +40,6 @@ const missingDeps = [
 if (missingDeps) {
     logger.error('Please install the missing dependencies in the root directory of your Hexo site.');
     process.exit(-1);
-}
-
-if (!checkDependency('hexo-generator-json-content')) {
-    logger.info(`Package hexo-generator-json-content is required by the insight search.`);
-    logger.info(`Please make sure it is installed if the insight search is going to be enabled.`);
 }
 
 const themeRoot = path.join(__dirname, '..');

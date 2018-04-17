@@ -15,7 +15,7 @@
 <% } %>
 
 <% if (has_config('rss')) { %>
-<link rel="alternative" href="<%- get_config('rss') %>" title="<%= config.title %>" type="application/atom+xml">
+<link rel="alternative" href="<%- get_config('rss') %>" title="<%= get_config('title') %>" type="application/atom+xml">
 <% } %>
 
 <% if (has_config('favicon')) { %>

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="columns content">
             <div class="column is-narrow has-text-centered">
-                &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>&nbsp;
+                &copy; <%= date(new Date(), 'YYYY') %> <%= get_config('author') || get_config('title') %>&nbsp;
                 Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
                         href="http://github.com/ppoffice/hexo-theme-minos">Minos</a>
             </div>
@@ -13,16 +13,17 @@
                 <div class="columns is-mobile is-multiline is-centered">
                 <% for (let name in get_config('footer_links')) { %>
                     <% let link = get_config('footer_links')[name]; %>
-                <a class="column is-narrow" href="<%= typeof(link) === 'string' ? link : link.url%>">
+                <a class="column is-narrow has-text-black" href="<%= typeof(link) === 'string' ? link : link.url%>">
                     <% if (typeof(link) === 'string') { %>
                     <%= name %>
                     <% } else { %>
-                    <i class="fab fa-github"></i>
+                    <i class="<%= link.icon %>"></i>
                     <% } %>
                 </a>
                 <% } %>
                 </div>
             </div>
+            <%- partial('common/languages') %>
             <% } %>
         </div>
     </div>

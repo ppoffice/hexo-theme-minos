@@ -3,6 +3,18 @@ const moment = require('moment');
 const cheerio = require('cheerio');
 
 /**
+ * Get page language. Returns empty if language is not found or is default language.
+ */
+hexo.extend.helper.register('lang', function () {
+    let language = this.page.lang;
+    let languages = this.config.language;
+    if (!Array.isArray(languages)) {
+        languages = [languages];
+    }
+    return languages.indexOf(language) > 0 ? language : '';
+});
+
+/**
  * Generate html head title based on page type
  */
 hexo.extend.helper.register('page_title', function () {
@@ -22,7 +34,9 @@ hexo.extend.helper.register('page_title', function () {
         title = this.__('common.tag') + ': ' + page.tag;
     }
 
-    return [title, hexo.config.title].filter(str => typeof(str) !== 'undefined' && str.trim() !== '').join(' - ');
+    const getConfig = hexo.extend.helper.get('get_config').bind(this);
+
+    return [title, getConfig('title', '', true)].filter(str => typeof(str) !== 'undefined' && str.trim() !== '').join(' - ');
 });
 
 /**

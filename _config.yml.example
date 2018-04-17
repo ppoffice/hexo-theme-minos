@@ -37,7 +37,7 @@ plugins:
 
 navbar_links:
   GitHub:
-    icon: fab-github
+    icon: fab fa-github
     url: https://github.com/ppoffice/hexo-theme-minos
 
 footer_links:

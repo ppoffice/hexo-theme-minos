@@ -2,9 +2,12 @@
 <script>
     var disqus_config = function () {
         this.page.url = '<%= page.permalink %>';
-        this.page.identifier = '<%= page.disqusId || page.slug %>';
+        this.page.identifier = '<%= page.disqusId || page.path %>';
+        <% if (lang()) { %>
+        this.language = '<%= lang().split('-')[0] %>';
+        <% } %>
     };
-    (function() { 
+    (function() {
         var d = document, s = d.createElement('script');  
         s.src = '//' + '<%= get_config('comment.shortname') %>' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());

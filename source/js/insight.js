@@ -34,36 +34,19 @@
             case 'PAGES':
                 $searchItems = array.map(function (item) {
                     // Use config.root instead of permalink to fix url issue
-                    return searchItem('file', item.title, null, item.text.slice(0, 150), CONFIG.ROOT_URL + item.path);
+                    return searchItem('file', item.title, null, item.text.slice(0, 150), item.link);
                 });
                 break;
             case 'CATEGORIES':
             case 'TAGS':
                 $searchItems = array.map(function (item) {
-                    return searchItem(type === 'CATEGORIES' ? 'folder' : 'tag', item.name, item.slug, null, item.permalink);
+                    return searchItem(type === 'CATEGORIES' ? 'folder' : 'tag', item.name, item.slug, null, item.link);
                 });
                 break;
             default:
                 return null;
         }
         return section(sectionTitle).append($searchItems);
-    }
-
-    function extractToSet (json, key) {
-        var values = {};
-        var entries = json.pages.concat(json.posts);
-        entries.forEach(function (entry) {
-            if (entry[key]) {
-                entry[key].forEach(function (value) {
-                    values[value.name] = value;
-                });
-            }
-        });
-        var result = [];
-        for (var key in values) {
-            result.push(values[key]);
-        }
-        return result;
     }
 
     function parseKeywords (keywords) {
@@ -80,7 +63,6 @@
      * @param Array<String>     fields  Object's fields to find matches
      */
     function filter (keywords, obj, fields) {
-        var result = false;
         var keywordArray = parseKeywords(keywords);
         var containKeywords = keywordArray.filter(function (keyword) {
             var containFields = fields.filter(function (field) {
@@ -155,8 +137,8 @@
         var FILTERS = filterFactory(keywords);
         var posts = json.posts;
         var pages = json.pages;
-        var tags = extractToSet(json, 'tags');
-        var categories = extractToSet(json, 'categories');
+        var tags = json.tags;
+        var categories = json.categories;
         return {
             posts: posts.filter(FILTERS.POST).sort(function (a, b) { return WEIGHTS.POST(b) - WEIGHTS.POST(a); }).slice(0, 5),
             pages: pages.filter(FILTERS.PAGE).sort(function (a, b) { return WEIGHTS.PAGE(b) - WEIGHTS.PAGE(a); }).slice(0, 5),

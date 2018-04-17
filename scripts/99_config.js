@@ -43,11 +43,17 @@ function getThemeConfig(lang = null) {
     return hexo.theme.config;
 }
 
-hexo.extend.helper.register('has_config', function (configName) {
-    return getConfig(Object.assign({}, getThemeConfig(this.page.lang), this.page), configName) !== null;
+hexo.extend.helper.register('has_config', function (configName, excludePage = false) {
+    return getConfig(Object.assign({},
+        this.config,
+        getThemeConfig(this.page.lang),
+        !excludePage ? this.page : {}), configName) !== null;
 });
 
-hexo.extend.helper.register('get_config', function (configName, defaultValue = null) {
-    let config = getConfig(Object.assign({}, getThemeConfig(this.page.lang), this.page), configName);
+hexo.extend.helper.register('get_config', function (configName, defaultValue = null, excludePage = false) {
+    let config = getConfig(Object.assign({},
+        this.config,
+        getThemeConfig(this.page.lang),
+        !excludePage ? this.page : {}), configName);
     return configName === null ? defaultValue : config;
 });

@@ -1,0 +1,27 @@
+<% const languages = get_config('language', [], true);
+if (Array.isArray(languages) && languages.length > 1) {%>
+<div class="column is-narrow has-text-centered">
+    <div class="dropdown is-up is-right is-hoverable" style="margin-top: -0.2em;">
+        <div class="dropdown-trigger">
+            <button class="button is-small" aria-haspopup="true" aria-controls="dropdown-menu7">
+                <span class="icon">
+                    <i class="fas fa-globe"></i>
+                </span>
+                <span><%= lang() ? lang() : languages[0] %></span>
+                <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+            </button>
+        </div>
+        <div class="dropdown-menu has-text-left" role="menu">
+            <div class="dropdown-content">
+            <% languages.forEach((language, i) => {
+            if (language !== 'default') { %>
+                <a href="<%= url_for('/' + (i > 0 ? language : '')) %>" class="dropdown-item"><%= language %></a>
+            <% }
+            }) %>
+            </div>
+        </div>
+    </div>
+</div>
+<%} %>
