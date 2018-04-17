@@ -6,6 +6,8 @@ const archiveGenerator = require('hexo-generator-archive/lib/generator');
 const categoryGenerator = require('hexo-generator-category/lib/generator');
 const tagGenerator = require('hexo-generator-tag/lib/generator');
 
+const Pattern = util.Pattern;
+
 function pathJoin(...paths) {
     return paths.join('/');
 }
@@ -20,9 +22,24 @@ function withLanguage(func) {
     }
 }
 
+function getPostLanguage(post) {
+    const languages = hexo.theme.i18n.list();
+    let lang = post.lang || post.language;
+    if (!lang) {
+        const pattern = new Pattern(`${hexo.config.i18n_dir}/*path`);
+        const data = pattern.match(post.path);
+
+        if (data && data.lang && ~languages.indexOf(data.lang)) {
+            lang = data.lang;
+        }
+    }
+    return lang;
+}
+
 function postFilter(language, isDefaultLanguage) {
     return function (post) {
-        return post.lang === language || (isDefaultLanguage && !post.lang);
+        let lang = getPostLanguage(post);
+        return lang === language || (isDefaultLanguage && !lang);
     }
 }
 
@@ -297,7 +314,9 @@ hexo.extend.generator.register('insight', withLanguage(function(languages, local
 /**
  * Append language directory to the post tags and categories
  */
-hexo.extend.filter.register('before_post_render', function(data){
+hexo.extend.filter.register('before_post_render', function(data) {
+    data.lang = getPostLanguage(data);
+    data._striped_path = data.path.startsWith(data.lang) ? data.path.slice(data.lang.length + 1) : data.path;
     data._categories = data.categories ? data.categories.map(category => {
         return {
             name: category.name,

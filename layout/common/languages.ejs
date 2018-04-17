@@ -17,7 +17,7 @@ if (Array.isArray(languages) && languages.length > 1) {%>
             <div class="dropdown-content">
             <% languages.forEach((language, i) => {
             if (language !== 'default') { %>
-                <a href="<%= url_for('/' + (i > 0 ? language : '')) %>" class="dropdown-item"><%= language %></a>
+                <a href="<%= url_for('/' + (i > 0 ? language + '/' : '') + (page._striped_path ? page._striped_path : '')) %>" class="dropdown-item"><%= language %></a>
             <% }
             }) %>
             </div>
