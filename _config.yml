@@ -7,14 +7,16 @@ title: Minos
 subtitle:
 description: Hexo theme - Minos
 author: PPOffice
-language: en
+language:
+- en
+- zh-cn
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://ppoffice.github.io/hexo-theme-minos
 root: /hexo-theme-minos/
-permalink: :year/:month/:day/:title/
+permalink: :slug/
 permalink_defaults:
 
 # Directory

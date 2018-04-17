@@ -1,7 +1,9 @@
 title: 中文测试
 date: 2015-01-26 21:55:37
-lang: zh-cn
+category:
+- Documentation
 tags:
+- Minos
 ---
 ## 桃花源记
 ### 朝代：魏晋
