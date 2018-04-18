@@ -8,6 +8,12 @@ body, button, input, select, textarea {
     font-family: $family-serif;
 }
 
+
+a.tag.article-tag {
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
 @media screen and (min-width: 1024px) {
     .container {
         max-width: 800px;
@@ -90,19 +96,6 @@ body, button, input, select, textarea {
         border-bottom: 1px dotted transparent;
         &:hover {
             border-bottom-color: darkgray;
-        }
-    }
-
-    .article-tags {
-        .column:not(:first-child) {
-            margin-left: -.75rem;
-        }
-
-        span a {
-            color: inherit;
-            background: #f2f2f2;
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
         }
     }
 

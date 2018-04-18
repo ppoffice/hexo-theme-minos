@@ -232,7 +232,8 @@ hexo.extend.generator.register('categories', withLanguage(function(languages, lo
                 return null;
             }
             return Object.assign({}, category, {
-                posts: posts
+                posts: posts,
+                path: i === 0 ? category.path : pathJoin(language, category.path)
             });
         }).filter(category => category !== null);
         return {
@@ -257,7 +258,8 @@ hexo.extend.generator.register('tags', withLanguage(function(languages, locals) 
                 return null;
             }
             return Object.assign({}, tag, {
-                posts: posts
+                posts: posts,
+                path: i === 0 ? tag.path : pathJoin(language, tag.path)
             });
         }).filter(category => category !== null);
         return {

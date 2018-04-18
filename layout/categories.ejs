@@ -1,3 +1,18 @@
-<% page._categories.forEach(category => {%>
-<%= category.name %>
-<% }) %>
+<section class="section section-heading">
+    <div class="container">
+        <div class="content">
+            <h5><i class="far fa-folder"></i><%= __('common.categories') %></h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="columns is-variable is-1 is-multiline is-mobile">
+            <% (page._categories || page.categories).forEach(category => {%>
+            <span class="column is-narrow">
+                <a class="tag is-light article-tag" href="<%= url_for(category.path) %>"><%= category.name %>&nbsp;(<%= category.posts.length%>)</a>
+            </span>
+            <% }) %>
+        </div>
+    </div>
+</section>

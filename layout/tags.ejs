@@ -1,3 +1,18 @@
-<% page._tags.forEach(tag => {%>
-<%= tag.name %>
-<% }) %>
+<section class="section section-heading">
+    <div class="container">
+        <div class="content">
+            <h5>#<%= __('common.tags') %></h5>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="columns is-variable is-1 is-multiline is-mobile">
+            <% (page._tags || page.tags).forEach(tag => {%>
+            <span class="column is-narrow">
+                <a class="tag is-light article-tag" href="<%= url_for(tag.path) %>">#<%= tag.name %>&nbsp;(<%= tag.posts.length%>)</a>
+            </span>
+            <% }) %>
+        </div>
+    </div>
+</section>

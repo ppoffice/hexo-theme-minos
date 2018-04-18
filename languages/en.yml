@@ -2,6 +2,8 @@ common:
   archives: 'Archives'
   category: 'Category'
   tag: 'Tag'
+  categories: 'Categories'
+  tags: 'Tags'
 nav:
   next: 'Next'
   prev: 'Prev'

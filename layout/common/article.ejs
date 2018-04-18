@@ -37,9 +37,9 @@
     <% } %>
     </div>
     <% if (!index && post.tags && post.tags.length){ %>
-    <div class="columns is-multiline is-mobile article-tags">
+    <div class="columns is-variable is-1 is-multiline is-mobile">
     <% (post._tags || post.tags).forEach(tag => { %>
-        <span class="column is-narrow"><a href="<%- url_for(tag.path) %>">#<%= tag.name %></a></span>
+        <span class="column is-narrow"><a class="tag is-light article-tag" href="<%- url_for(tag.path) %>">#<%= tag.name %></a></span>
     <% }) %>
     </div>
     <% } %>

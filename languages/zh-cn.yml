@@ -2,6 +2,8 @@ common:
   archives: '归档'
   category: '分类'
   tag: '标签'
+  categories: '分类'
+  tags: '标签'
 nav:
   next: '下一页'
   prev: '上一页'
