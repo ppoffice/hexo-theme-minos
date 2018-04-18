@@ -13,7 +13,7 @@
         <% if (post.categories && post.categories.length){ %>
         <span class="column is-narrow article-category">
             <i class="far fa-folder"></i>
-            <%- post._categories.map(category =>
+            <%- (post._categories || post.categories).map(category =>
                     `<a class="article-category-link" href="${url_for(category.path)}">${category.name}</a>`)
                     .join('<span>></span>') %>
         </span>

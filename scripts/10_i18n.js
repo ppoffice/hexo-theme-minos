@@ -6,28 +6,74 @@ const archiveGenerator = require('hexo-generator-archive/lib/generator');
 const categoryGenerator = require('hexo-generator-category/lib/generator');
 const tagGenerator = require('hexo-generator-tag/lib/generator');
 
+const RFC5646_TAGS = require('./rfc5646');
+
 const Pattern = util.Pattern;
 
 function pathJoin(...paths) {
     return paths.join('/');
 }
 
-function withLanguage(func) {
+function formatRfc5646(language) {
+    if (!language) {
+        return '';
+    }
+    return language.split(/[-_]/).map((l, i) => i === 0 ? l.toLowerCase() : l.toUpperCase()).join('-');
+}
+
+function formatIso639(language) {
+    if (!language) {
+        return '';
+    }
+    return language.split(/[-_]/)[0].toLowerCase();
+}
+
+function getClosestRfc5646WithCountryCode(language) {
+    if (!language) {
+        return '';
+    }
+    const iso639 = formatRfc5646(language).split('-')[0];
+    const result = Object.keys(RFC5646_TAGS).find(tag => tag.startsWith(iso639 + '-'));
+    return result ? result : iso639;
+}
+
+function getUsedLanguages() {
+    return hexo.theme.i18n.list();
+}
+
+function getDisplayLanguages() {
+    let languages = hexo.config.language;
+    if (!languages) {
+        return ['default'];
+    }
+    languages = [].concat(hexo.config.language);
+    if (!Array.isArray(languages)) {
+        languages = [languages];
+    }
+    if (languages.indexOf('default') > -1) {
+        languages.splice(languages.indexOf('default'), 1);
+    }
+    return languages;
+}
+
+function isLanguageValid(language) {
+    const variants = [language, formatRfc5646(language)];
+    return variants.some(variant => RFC5646_TAGS.hasOwnProperty(variant));
+}
+
+function injectLanguages(func) {
     return function(locals) {
-        let languages = this.config.language;
-        if (!Array.isArray(languages)) {
-            languages = [languages];
-        }
-        return func.call(this, languages, locals);
+        return func.call(this, getDisplayLanguages(), locals);
     }
 }
 
-function getPostLanguage(post) {
-    const languages = hexo.theme.i18n.list();
+function getPageLanguage(post) {
+    const languages = getUsedLanguages();
     let lang = post.lang || post.language;
     if (!lang) {
+        const path = post.source.startsWith('_posts/') ? post.source.slice('_posts/'.length) : post.source;
         const pattern = new Pattern(`${hexo.config.i18n_dir}/*path`);
-        const data = pattern.match(post.path);
+        const data = pattern.match(path);
 
         if (data && data.lang && ~languages.indexOf(data.lang)) {
             lang = data.lang;
@@ -36,10 +82,14 @@ function getPostLanguage(post) {
     return lang;
 }
 
-function postFilter(language, isDefaultLanguage) {
+function isDefaultLanguage(language) {
+    return !language || getDisplayLanguages().indexOf(language) === 0;
+}
+
+function postFilter(language) {
     return function (post) {
-        let lang = getPostLanguage(post);
-        return lang === language || (isDefaultLanguage && !lang);
+        let lang = getPageLanguage(post);
+        return lang === language || (isDefaultLanguage(language) && !lang);
     }
 }
 
@@ -82,17 +132,17 @@ hexo.extend.generator.register('post', function(locals) {
  *
  * ATTENTION: This will override the default index generator!
  */
-hexo.extend.generator.register('index', withLanguage(function(languages, locals) {
-    return _.flatten(languages.map((language, i) => {
+hexo.extend.generator.register('index', injectLanguages(function(languages, locals) {
+    return _.flatten(languages.map((language) => {
         // Filter posts by language considering. Posts without a language is considered of the default language.
-        const posts = locals.posts.filter(postFilter(language, i === 0));
+        const posts = locals.posts.filter(postFilter(language));
         if (posts.length === 0) {
             return null;
         }
         const routes = indexGenerator.call(this, Object.assign({}, locals, {
             posts: posts
         }));
-        if (i === 0) {
+        if (isDefaultLanguage(language)) {
             return routes;
         }
         return routes.map(route => {
@@ -113,17 +163,17 @@ hexo.extend.generator.register('index', withLanguage(function(languages, locals)
  *
  * ATTENTION: This will override the default archive generator!
  */
-hexo.extend.generator.register('archive', withLanguage(function(languages, locals) {
-    return _.flatten(languages.map((language, i) => {
+hexo.extend.generator.register('archive', injectLanguages(function(languages, locals) {
+    return _.flatten(languages.map((language) => {
         // Filter posts by language considering. Posts without a language is considered of the default language.
-        const posts = locals.posts.filter(postFilter(language, i === 0));
+        const posts = locals.posts.filter(postFilter(language));
         if (posts.length === 0) {
             return null;
         }
         const routes = archiveGenerator.call(this, Object.assign({}, locals, {
             posts: posts
         }));
-        if (i === 0) {
+        if (isDefaultLanguage(language)) {
             return routes;
         }
         return routes.map(route => {
@@ -144,11 +194,11 @@ hexo.extend.generator.register('archive', withLanguage(function(languages, local
  *
  * ATTENTION: This will override the default category generator!
  */
-hexo.extend.generator.register('category', withLanguage(function(languages, locals) {
-    return _.flatten(languages.map((language, i) => {
+hexo.extend.generator.register('category', injectLanguages(function(languages, locals) {
+    return _.flatten(languages.map((language) => {
         const categories = locals.categories.map(category => {
             // Filter posts by language considering. Posts without a language is considered of the default language.
-            const posts = category.posts.filter(postFilter(language, i === 0));
+            const posts = category.posts.filter(postFilter(language));
             if (posts.length === 0) {
                 return null;
             }
@@ -163,7 +213,7 @@ hexo.extend.generator.register('category', withLanguage(function(languages, loca
         const routes = categoryGenerator.call(this, Object.assign({}, locals, {
             categories: categories
         }));
-        if (i === 0) {
+        if (isDefaultLanguage(language)) {
             return routes;
         }
         return routes.map(route => {
@@ -184,11 +234,11 @@ hexo.extend.generator.register('category', withLanguage(function(languages, loca
  *
  * ATTENTION: This will override the default tag generator!
  */
-hexo.extend.generator.register('tag', withLanguage(function(languages, locals) {
-    return _.flatten(languages.map((language, i) => {
+hexo.extend.generator.register('tag', injectLanguages(function(languages, locals) {
+    return _.flatten(languages.map((language) => {
         const tags = locals.tags.map(tag => {
             // Filter posts by language considering. Posts without a language is considered of the default language.
-            const posts = tag.posts.filter(postFilter(language, i === 0));
+            const posts = tag.posts.filter(postFilter(language));
             if (posts.length === 0) {
                 return null;
             }
@@ -203,7 +253,7 @@ hexo.extend.generator.register('tag', withLanguage(function(languages, locals) {
         const routes = tagGenerator.call(this, Object.assign({}, locals, {
             tags: tags
         }));
-        if (i === 0) {
+        if (isDefaultLanguage(language)) {
             return routes;
         }
 
@@ -223,24 +273,25 @@ hexo.extend.generator.register('tag', withLanguage(function(languages, locals) {
 /**
  * Category list page generator
  */
-hexo.extend.generator.register('categories', withLanguage(function(languages, locals) {
-    return languages.map((language, i) => {
+hexo.extend.generator.register('categories', injectLanguages(function(languages, locals) {
+    return languages.map((language) => {
         const categories = locals.categories.map(category => {
             // Filter posts by language considering. Posts without a language is considered of the default language.
-            const posts = category.posts.filter(postFilter(language, i === 0));
+            const posts = category.posts.filter(postFilter(language));
             if (posts.length === 0) {
                 return null;
             }
             return Object.assign({}, category, {
                 posts: posts,
-                path: i === 0 ? category.path : pathJoin(language, category.path)
+                path: isDefaultLanguage(language) ? category.path : pathJoin(language, category.path)
             });
         }).filter(category => category !== null);
         return {
-            path: i !== 0 ? pathJoin(language, 'categories/') : 'categories/',
+            path: isDefaultLanguage(language) ? 'categories/' : pathJoin(language, 'categories/'),
             layout: ['categories'],
             data: Object.assign({}, locals, {
-                _categories: categories
+                _categories: categories,
+                __categories: true
             })
         };
     })
@@ -249,24 +300,25 @@ hexo.extend.generator.register('categories', withLanguage(function(languages, lo
 /**
  * Tag list page generator
  */
-hexo.extend.generator.register('tags', withLanguage(function(languages, locals) {
-    return languages.map((language, i) => {
+hexo.extend.generator.register('tags', injectLanguages(function(languages, locals) {
+    return languages.map((language) => {
         const tags = locals.tags.map(tag => {
             // Filter posts by language considering. Posts without a language is considered of the default language.
-            const posts = tag.posts.filter(postFilter(language, i === 0));
+            const posts = tag.posts.filter(postFilter(language));
             if (posts.length === 0) {
                 return null;
             }
             return Object.assign({}, tag, {
                 posts: posts,
-                path: i === 0 ? tag.path : pathJoin(language, tag.path)
+                path: isDefaultLanguage(language) ? tag.path : pathJoin(language, tag.path)
             });
         }).filter(category => category !== null);
         return {
-            path: i !== 0 ? pathJoin(language, 'tags/') : 'tags/',
+            path: isDefaultLanguage(language) ? 'tags/' : pathJoin(language, 'tags/'),
             layout: ['tags'],
             data: Object.assign({}, locals, {
-                _tags: tags
+                _tags: tags,
+                __tags: true
             })
         };
     })
@@ -277,7 +329,7 @@ hexo.extend.generator.register('tags', withLanguage(function(languages, locals) 
  *
  * ATTENTION: This will override the default insight search content.json generator!
  */
-hexo.extend.generator.register('insight', withLanguage(function(languages, locals) {
+hexo.extend.generator.register('insight', injectLanguages(function(languages, locals) {
     function minify(str) {
         return util.stripHTML(str).trim().replace(/\n/g, ' ').replace(/\s+/g, ' ');
     }
@@ -288,26 +340,26 @@ hexo.extend.generator.register('insight', withLanguage(function(languages, local
             link: url_for(post.path)
         }
     }
-    function tagMapper(language, defaultLanguage) {
+    function tagMapper(language) {
         return function (tag) {
             return {
                 name: tag.name,
                 slug: tag.slug,
-                link: url_for(defaultLanguage ? tag.path : pathJoin(language, tag.path))
+                link: url_for(isDefaultLanguage(language) ? tag.path : pathJoin(language, tag.path))
             }
         }
     }
-    return languages.map((language, i) => {
+    return languages.map((language) => {
         const site = {
-            pages: locals.pages.filter(postFilter(language, i === 0)).map(postMapper),
-            posts: locals.posts.filter(postFilter(language, i === 0)).map(postMapper),
-            tags: locals.tags.filter(tag => tag.posts.some(postFilter(language, i === 0)))
-                .map(tagMapper(language, i === 0)),
-            categories: locals.categories.filter(category => category.posts.some(postFilter(language, i === 0)))
-                .map(tagMapper(language, i === 0)),
+            pages: locals.pages.filter(postFilter(language)).map(postMapper),
+            posts: locals.posts.filter(postFilter(language)).map(postMapper),
+            tags: locals.tags.filter(tag => tag.posts.some(postFilter(language)))
+                .map(tagMapper(language)),
+            categories: locals.categories.filter(category => category.posts.some(postFilter(language)))
+                .map(tagMapper(language)),
         };
         return {
-            path: i === 0 ? 'content.json' : 'content.' + language + '.json',
+            path: isDefaultLanguage(language) ? 'content.json' : 'content.' + language + '.json',
             data: JSON.stringify(site)
         };
     });
@@ -317,25 +369,88 @@ hexo.extend.generator.register('insight', withLanguage(function(languages, local
  * Append language directory to the post tags and categories
  */
 hexo.extend.filter.register('before_post_render', function(data) {
-    data.lang = getPostLanguage(data);
+    data.lang = getPageLanguage(data);
     data._categories = data.categories ? data.categories.map(category => {
         return {
             name: category.name,
-            path: data.lang ? pathJoin(data.lang, category.path) : category.path
+            path: !isDefaultLanguage(data.lang) ? pathJoin(data.lang, category.path) : category.path
         };
     }) : [];
     data._tags = data.tags ? data.tags.map(tag => {
         return {
             name: tag.name,
-            path: data.lang ? pathJoin(data.lang, tag.path) : tag.path
+            path: !isDefaultLanguage(data.lang) ? pathJoin(data.lang, tag.path) : tag.path
         };
     }) : [];
     return data;
 });
 
+/**
+ * Get all languages set in the site's _config.yml
+ */
+hexo.extend.helper.register('display_languages', function () {
+    return getDisplayLanguages();
+});
+
+/**
+ * Test if the given language is sites default language.
+ */
+hexo.extend.helper.register('is_default_language', function (language) {
+    return isDefaultLanguage(language);
+});
+
+/**
+ * Get page language. Returns empty if language is not found or is default language.
+ */
+hexo.extend.helper.register('page_language', function () {
+    return getPageLanguage(this.page);
+});
+
+/**
+ * Get page path given a certain language tag
+ */
 hexo.extend.helper.register('i18n_path', function (language) {
     const path = this.page.path;
-    const lang = getPostLanguage(this.page);
+    const lang = getPageLanguage(this.page);
     const base = path.startsWith(lang) ? path.slice(lang.length + 1) : path;
     return (language ? '/' + language : '') + '/' + base;
 });
+
+/**
+ * Format language to RFC5646 style
+ */
+hexo.extend.helper.register('rfc5646', function (language) {
+    return formatRfc5646(language);
+});
+
+/**
+ * Return the ISO639 part of the language tag
+ */
+hexo.extend.helper.register('iso639', function (language) {
+    return formatIso639(language);
+});
+
+/**
+ * Get the closest language tag to the provided language tag
+ */
+hexo.extend.helper.register('closest_rfc5646_with_country_code', function (language) {
+    return getClosestRfc5646WithCountryCode(language);
+});
+
+/**
+ * Get the language name
+ */
+hexo.extend.helper.register('language_name', function (language) {
+    const name = hexo.theme.i18n.__(language)('name');
+    return name === 'name' ? language : name;
+});
+
+module.exports = {
+    getUsedLanguages,
+    getDisplayLanguages,
+    getPageLanguage,
+    isLanguageValid,
+    formatRfc5646,
+    formatIso639,
+    getClosestRfc5646WithCountryCode
+};

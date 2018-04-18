@@ -20,7 +20,7 @@
                 TAGS: '<%= __("insight.tags") %>',
                 UNTITLED: '<%= __("insight.untitled") %>',
             },
-            CONTENT_URL: '<%- url_for("/content" + (lang() ? '.' + lang() : '') + ".json")%>',
+            CONTENT_URL: '<%- url_for("/content" + (!is_default_language(page_language()) ? '.' + page_language() : '') + ".json")%>',
         };
         window.INSIGHT_CONFIG = INSIGHT_CONFIG;
     })(window);

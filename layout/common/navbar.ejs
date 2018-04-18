@@ -12,7 +12,7 @@
 <nav class="navbar is-transparent is-fixed-top navbar-main" role="navigation" aria-label="main navigation">
     <div class="container">
         <div class="navbar-brand">
-            <a class="navbar-item navbar-logo" href="<%- url_for('/' + (lang() ? lang() : '')) %>">
+            <a class="navbar-item navbar-logo" href="<%- url_for('/' + (!is_default_language(page_language()) ? page_language() : '')) %>">
                 <% if (has_config('logo') && get_config('logo')) { %>
                     <% if (has_config('logo.text') && get_config('logo.text')) { %>
                     <%= get_config('logo.text') %>

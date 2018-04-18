@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const logger = require('hexo-log')();
 
+const { getUsedLanguages, getDisplayLanguages, isLanguageValid } = require('./10_i18n');
+
 logger.info(`=======================================
 ███╗   ███╗ ██╗ ███╗   ██╗  ██████╗  ███████╗
 ████╗ ████║ ██║ ████╗  ██║ ██╔═══██╗ ██╔════╝
@@ -45,6 +47,17 @@ if (missingDeps) {
 const themeRoot = path.join(__dirname, '..');
 const mainConfigPath = path.join(themeRoot, '_config.yml');
 
+logger.info('Checking if the configuration file exists');
 if (!fs.existsSync(mainConfigPath)) {
     logger.warn(`${mainConfigPath} is not found. Please create one from the template _config.yml.example.`)
+}
+
+logger.info('Checking language names against RFC5646 specs');
+const invalidLanguages = getUsedLanguages().filter(language => !isLanguageValid(language));
+if (invalidLanguages.length > 0) {
+    logger.warn(`Language ${invalidLanguages} indicated by some posts is not a valid RFC5646 language.`)
+}
+const invalidDisplayLanguages = getDisplayLanguages().filter(language => !isLanguageValid(language));
+if (invalidDisplayLanguages.length > 0) {
+    logger.warn(`Language ${invalidDisplayLanguages} set in the configuration file is not a valid RFC5646 language.`)
 }

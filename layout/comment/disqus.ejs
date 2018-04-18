@@ -1,10 +1,65 @@
-<% if (has_config('comment.shortname')) { %>
+<% if (has_config('comment.shortname')) {
+// Disqus supported languages.
+// Last update at 4/18/2018
+const SUPPORTED_LANGS = {
+    'sq': 'Albanian',
+    'ar': 'Arabic',
+    'az': 'Azerbaijani',
+    'eu': 'Basque',
+    'ca': 'Catalan',
+    'zh': 'Chinese',
+    'cs': 'Czech',
+    'da': 'Danish',
+    'nl': 'Dutch',
+    'en': 'English',
+    'fi': 'Finnish',
+    'fr': 'French',
+    'de': 'German',
+    'el': 'Greek',
+    'he': 'Hebrew',
+    'hu': 'Hungarian',
+    'id': 'Indonesian',
+    'it': 'Italian',
+    'ja': 'Japanese',
+    'ko': 'Korean',
+    'lv': 'Latvian',
+    'nb': 'Norwegian Bokmål',
+    'fa': 'Persian',
+    'pl': 'Polish',
+    'pt': 'Portuguese',
+    'pt_BR': 'Portuguese (Brazil)',
+    'ro': 'Romanian',
+    'ru': 'Russian',
+    'sr': 'Serbian',
+    'sr@latin': 'Serbian (Latin)',
+    'sk': 'Slovak',
+    'sl': 'Slovenian',
+    'es_AR': 'Spanish (Argentina)',
+    'es_MX': 'Spanish (Mexico)',
+    'es_ES': 'Spanish (Spain)',
+    'sv_SE': 'Swedish (Sweden)',
+    'tr': 'Turkish',
+    'uk': 'Ukrainian',
+    'vec': 'Venetian'
+};
+
+function getDisqusLanguage(language) {
+    const variant = language.split(/[-_]/).map((l, i) => i === 0 ? l.toLowerCase() : l.toUpperCase()).join('_');
+    if (SUPPORTED_LANGS.hasOwnProperty(variant)) {
+        return variant;
+    }
+    if (SUPPORTED_LANGS.hasOwnProperty(variant.split('_')[0])) {
+        return variant.split('_')[0];
+    }
+    return 'en';
+}
+%>
 <script>
     var disqus_config = function () {
         this.page.url = '<%= page.permalink %>';
         this.page.identifier = '<%= page.disqusId || page.path %>';
-        <% if (lang()) { %>
-        this.language = '<%= lang().split('-')[0] %>';
+        <% if (page_language()) { %>
+        this.language = '<%= getDisqusLanguage(page_language()) %>';
         <% } %>
     };
     (function() {
