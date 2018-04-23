@@ -2,8 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const logger = require('hexo-log')();
 
-const { getUsedLanguages, getDisplayLanguages, isLanguageValid } = require('./10_i18n');
-
 logger.info(`=======================================
 ███╗   ███╗ ██╗ ███╗   ██╗  ██████╗  ███████╗
 ████╗ ████║ ██║ ████╗  ██║ ██╔═══██╗ ██╔════╝
@@ -51,6 +49,8 @@ logger.info('Checking if the configuration file exists');
 if (!fs.existsSync(mainConfigPath)) {
     logger.warn(`${mainConfigPath} is not found. Please create one from the template _config.yml.example.`)
 }
+
+const { getUsedLanguages, getDisplayLanguages, isLanguageValid } = require('./10_i18n');
 
 logger.info('Checking language names against RFC5646 specs');
 const invalidLanguages = getUsedLanguages().filter(language => !isLanguageValid(language));
