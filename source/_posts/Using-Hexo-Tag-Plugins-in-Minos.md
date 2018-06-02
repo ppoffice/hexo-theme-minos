@@ -1,4 +1,4 @@
-title: Use Hexo Tag Plugins in Minos
+title: Using Hexo Tag Plugins in Minos
 date: 2016-07-08 20:07:55
 categories:
 - Documentation
@@ -230,7 +230,7 @@ Inserts an image with specified size.
 {% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
 ```
 
-{% img /gallery/shoes.jpg 200 86 '"Forest path" "Forest path"' %}
+{% img /gallery/forest.jpg 200 86 '"Forest path" "Forest path"' %}
 
 ## Link
 

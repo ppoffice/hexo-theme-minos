@@ -1,4 +1,4 @@
-title: Create a Gallery in Minos
+title: Creating a Gallery in Minos
 date: 2016-07-08 00:00:00
 categories:
 - Documentation
