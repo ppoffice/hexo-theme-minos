@@ -4,7 +4,7 @@
 <br>
 <a href="http://blog.zhangruipeng.me/hexo-theme-minos/"><b>Preview</b></a> | 
 <a href="https://github.com/ppoffice/hexo-theme-minos/archive/master.zip"><b>Download</b></a> |
-Documentation (Coming soon)
+<a href="http://ppoffice.github.io/hexo-theme-minos"><b>Documentation</b></a>
 </p>
 
 ![Minos](http://ppoffice.github.io/hexo-theme-minos/gallery/preview.png "Minos Preview")
