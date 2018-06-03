@@ -6,3 +6,4 @@ db.json
 node_modules/
 public/
 .deploy*/
+.vscode/

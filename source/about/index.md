@@ -5,7 +5,7 @@ title: About Minos
 <br>
 A simple and retro styled Hexo theme, concentrating more on your ideas.
 <br>
-<small><a href="http://blog.zhangruipeng.me/hexo-theme-minos/"><b>Preview</b></a> | <a href="https://github.com/ppoffice/hexo-theme-minos/archive/master.zip"><b>Download</b></a> | Documentation (Coming soon)</small>
+<small><a href="http://blog.zhangruipeng.me/hexo-theme-minos/"><b>Preview</b></a> | <a href="https://github.com/ppoffice/hexo-theme-minos/archive/master.zip"><b>Download</b></a> | <a href="http://ppoffice.github.io/hexo-theme-minos/categories/Documentation/"><b>Documentation</b></small>
 </p>
 
 ![Minos](http://ppoffice.github.io/hexo-theme-minos/gallery/preview.png "Minos Preview")
