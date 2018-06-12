@@ -30,7 +30,7 @@
     <% if (post.excerpt && index){ %>
         <%- post.excerpt %>
         <p class="article-more-link">
-            <a href="<%- url_for(post.path) %>#more"><%= __('article.read_more') %></a>
+            <a href="<%- url_for(post.path) %>"><%= __('article.read_more') %></a>
         </p>
     <% } else { %>
         <%- post.content %>
