@@ -616,3 +616,23 @@ figure.highlight {
 }
 
 @import "insight";
+
+.aspect-ratio {
+    width: 100%;
+    max-width: 640px;
+    position: relative;
+    height: 0;
+    > iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+    &.sixteen-nine {
+        padding-bottom: 56.25%;
+    }
+    &.four-three {
+        padding-bottom: 75%
+    }
+}
