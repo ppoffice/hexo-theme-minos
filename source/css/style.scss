@@ -8,18 +8,20 @@ body, button, input, select, textarea {
     font-family: $family-serif;
 }
 
+$lg_min: 896px;
+$md_max: 895px;
+
+.container {
+    max-width: 850px;
+    width: 100%;
+}
 
 a.tag.article-tag {
     font-size: 0.9rem;
     text-decoration: none;
 }
 
-@media screen and (min-width: 1024px) {
-    .container {
-        max-width: 850px;
-        width: 850px;
-    }
-
+@media screen and (min-width: 896px) {
     .navbar.is-transparent .navbar-dropdown a.navbar-item:hover {
         color: #3273dc;
     }
@@ -639,4 +641,21 @@ figure.highlight {
 
 .content h1 {
     margin-bottom: 0.25em;
+}
+
+.asciicast,
+[href$='fallback.png'] {
+    display: none !important;
+}
+
+@media screen and (max-width: $md_max) {
+    [href$='fallback.png'] {
+        display: block !important;
+    }
+}
+
+@media screen and (min-width: $lg_min) {
+    .asciicast {
+        display: block !important;
+    }
 }
