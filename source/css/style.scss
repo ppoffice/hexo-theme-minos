@@ -624,6 +624,7 @@ figure.highlight {
     max-width: 640px;
     position: relative;
     height: 0;
+    margin-bottom: 16px;
     > iframe {
       position: absolute;
       width: 100%;
@@ -660,3 +661,5 @@ figure.highlight {
         margin: 20px -100px !important;
     }
 }
+
+html { font-size: 18px; }
