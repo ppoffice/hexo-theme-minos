@@ -8,11 +8,11 @@ body, button, input, select, textarea {
     font-family: $family-serif;
 }
 
-$lg_min: 896px;
-$md_max: 895px;
+$lg_min: 696px;
+$md_max: 695px;
 
 .container {
-    max-width: 850px;
+    max-width: 650px;
     width: 100%;
 }
 
@@ -21,7 +21,7 @@ a.tag.article-tag {
     text-decoration: none;
 }
 
-@media screen and (min-width: 896px) {
+@media screen and (min-width: $lg_min) {
     .navbar.is-transparent .navbar-dropdown a.navbar-item:hover {
         color: #3273dc;
     }
@@ -648,14 +648,15 @@ figure.highlight {
     display: none !important;
 }
 
-@media screen and (max-width: $md_max) {
+@media screen and (max-width: 895px) {
     [href$='fallback.png'] {
         display: block !important;
     }
 }
 
-@media screen and (min-width: $lg_min) {
+@media screen and (min-width: 896px) {
     .asciicast {
         display: block !important;
+        margin: 20px -100px !important;
     }
 }
