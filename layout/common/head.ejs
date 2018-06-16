@@ -12,6 +12,10 @@
 <title><%= page_title() %></title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+<% if (has_config('description')) { %>
+<meta name="description" content="<%- get_config('description') %>" />
+<% } %>
+
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
 <% if (has_config('head.open_graph')) { %>
