@@ -15,16 +15,21 @@ const MOMENTJS_SUPPORTED_LANGUAGES = ['af', 'ar-dz', 'ar-kw', 'ar-ly', 'ar-ma', 
     'tzl', 'tzm-latn', 'tzm', 'ug-cn', 'uk', 'ur', 'uz-latn', 'uz', 'vi', 'x-pseudo', 'yo',
     'zh-cn', 'zh-hk', 'zh-tw'];
 
+function getMomentLocale(language) {
+    let locale = formatRfc5646(language);
+    if (MOMENTJS_SUPPORTED_LANGUAGES.indexOf(locale) === -1) {
+        if (MOMENTJS_SUPPORTED_LANGUAGES.indexOf(formatIso639(locale)) > -1) {
+            locale = formatIso639(locale);
+        } else if (MOMENTJS_SUPPORTED_LANGUAGES.indexOf(getClosestRfc5646WithCountryCode(locale).toLowerCase()) > -1) {
+            locale = getClosestRfc5646WithCountryCode(locale);
+        }
+    }
+    return locale;
+}
+
 function injectMomentLocale(func) {
     return function() {
-        let language = formatRfc5646(getPageLanguage(this.page));
-        if (MOMENTJS_SUPPORTED_LANGUAGES.indexOf(language) === -1) {
-            if (MOMENTJS_SUPPORTED_LANGUAGES.indexOf(formatIso639(language)) > -1) {
-                language = formatIso639(language);
-            } else if (MOMENTJS_SUPPORTED_LANGUAGES.indexOf(getClosestRfc5646WithCountryCode(language).toLowerCase()) > -1) {
-                language = getClosestRfc5646WithCountryCode(language);
-            }
-        }
+        let language = getMomentLocale(getPageLanguage(this.page));
         moment.locale(language);
         const args = Array.prototype.slice.call(arguments).map(arg => {
             if (arg instanceof moment) {
@@ -81,17 +86,24 @@ hexo.extend.helper.register('format_date', injectMomentLocale(function(date) {
 }));
 
 /**
+ * Format date to string with year.
+ */
+hexo.extend.helper.register('format_date_full', injectMomentLocale(function(date) {
+    return moment(date).format('MMM D YYYY');
+}));
+
+/**
+ * Get moment.js supported page locale
+ */
+hexo.extend.helper.register('momentjs_locale', function() {
+    return getMomentLocale(getPageLanguage(this.page));
+});
+
+/**
  * Export moment.duration
  */
 hexo.extend.helper.register('duration', injectMomentLocale(function() {
     return moment.duration.apply(null, arguments);
-}));
-
-/**
- * Get the difference between the page date time from now
- */
-hexo.extend.helper.register('from_now', injectMomentLocale(function(date = null) {
-    return moment(date || this.page.date).fromNow();
 }));
 
 /**
