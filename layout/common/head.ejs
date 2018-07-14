@@ -1,6 +1,20 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-50553956-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-50553956-1');
+</script>
+
 <meta charset="utf-8">
 <title><%= page_title() %></title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<% if (has_config('description')) { %>
+<meta name="description" content="<%- get_config('description') %>" />
+<% } %>
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
@@ -19,10 +33,10 @@
 <% } %>
 
 <% if (has_config('favicon')) { %>
-<link rel="icon" href="<%- get_config('favicon') %>">
+<link rel="icon" type="image/png" href="<%- get_config('favicon') %>" />
 <% } %>
 
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ovo|Source+Code+Pro|Libre+Franklin">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
 
 <% if (!(has_config('plugins.gallery') && get_config('plugins.gallery') === false)) { %>
