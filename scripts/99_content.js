@@ -118,26 +118,47 @@ hexo.extend.helper.register('word_count', (content) => {
 /**
  * Export a list of headings of an article
  * [
- *     ['1', 'heading-anchor-1', 'Title of the heading 1'],
- *     ['1.1', 'heading-anchor-1-1', 'Title of the heading 1.1'],
+ *     ['1', 'heading-anchor-1', 'Title of the heading 1', 1],
+ *     ['1.1', 'heading-anchor-1-1', 'Title of the heading 1.1', 2],
  * ]
  */
 hexo.extend.helper.register('toc_list', (content) => {
     const $ = cheerio.load(content);
     const levels = [0, 0, 0];
-    const headings = $(['h1', 'h2', 'h3'].join(','));
-
+    const levelTags = [];
+    // Get top 3 headings
+    for (let i = 1; i <= 6; i++) {
+        if ($('h' + i).length > 0) {
+            levelTags.push('h' + i);
+        }
+        if (levelTags.length === 3) {
+            break;
+        }
+    }
     const tocList = [];
+    if (levelTags.length === 0) {
+        return tocList;
+    }
+    const headings = $(levelTags.join(','));
     headings.each(function() {
-        const level = +this.name[1];
+        const level = levelTags.indexOf(this.name);
         const id = $(this).attr('id');
         const text = _.escape($(this).text());
 
-        levels[level - 1] += 1;
-        for (let i = level; i < levels.length; i++) {
-            levels[i] = 0;
+        for (let i = 0; i < levels.length; i++) {
+            if (i > level) {
+                levels[i] = 0;
+            } else if (i < level) {
+                // if headings start with a lower level heading, set the former heading index to 1
+                // e.g. h3, h2, h1, h2, h3 => 1.1.1, 1.2, 2, 2.1, 2.1.1
+                if (levels[i] === 0) {
+                    levels[i] = 1;
+                }
+            } else {
+                levels[i] += 1;
+            }
         }
-        tocList.push([levels.slice(0, level).join('.'), id, text]);
+        tocList.push([levels.slice(0, level + 1).join('.'), id, text, level + 1]);
     });
     return tocList;
 });
