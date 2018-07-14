@@ -13,7 +13,7 @@
                 <div class="columns is-mobile is-multiline is-centered">
                 <% for (let name in get_config('footer_links')) { %>
                     <% let link = get_config('footer_links')[name]; %>
-                <a class="column is-narrow has-text-black" href="<%= typeof(link) === 'string' ? link : link.url%>">
+                <a class="column is-narrow has-text-black" title="<%= name %>" href="<%= typeof(link) === 'string' ? link : link.url%>">
                     <% if (typeof(link) === 'string') { %>
                     <%= name %>
                     <% } else { %>

@@ -8,6 +8,8 @@ common:
 nav:
   next: 'Next'
   prev: 'Prev'
+  search: 'Search'
+  toc: 'Table of Contents'
 article:
   read_more: 'Read More'
   read: 'read'

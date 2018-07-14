@@ -8,6 +8,8 @@ common:
 nav:
   next: '下一页'
   prev: '上一页'
+  search: '搜索'
+  toc: '目录'
 article:
   read_more: '阅读更多'
   read: '读完'
