@@ -4,6 +4,11 @@ categories:
 - Documentation
 tags:
 - Minos
+toc: true
+navbar_links:
+  Edit on GitHub:
+    icon: fas fa-edit
+    url: https://github.com/ppoffice/hexo-theme-minos/edit/site/source/_posts/Setting-up-a-Commenting-Service.md
 ---
 
 Minos supports a wide variety of commenting services for you to gather readers' feedbacks. To enable and configure a commenting service, you should insert or edit the `comment` section in the configuration file (e.g. `_config.yml`). The following sections describe available options for each supported commenting service. Also, you may need to refer to the vendor's installation instructions for actual values of your options.

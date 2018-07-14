@@ -4,6 +4,11 @@ categories:
 - Documentation
 tags:
 - Minos
+toc: true
+navbar_links:
+  Edit on GitHub:
+    icon: fas fa-edit
+    url: https://github.com/ppoffice/hexo-theme-minos/edit/site/source/_posts/Enable-Search-Engine-Integration-in-Minos.md
 ---
 {% img /gallery/compass.jpg %}
 A search engine can help your reader to navigate through the content and find their interests with least effort. Setting up the search engine is quite easy in Minos. Simply sign up with your favorite search service provider, then insert or edit the `search` search in the configuration file (e.g. `_config.yml`). The following sections describe available options for each supported search service. Also, you may need to refer to the service provider's installation instructions for actual values of your options.

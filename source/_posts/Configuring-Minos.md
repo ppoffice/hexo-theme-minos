@@ -4,6 +4,11 @@ categories:
 - Documentation
 tags:
 - Minos
+toc: true
+navbar_links:
+  Edit on GitHub:
+    icon: fas fa-edit
+    url: https://github.com/ppoffice/hexo-theme-minos/edit/site/source/_posts/Configuring-Minos.md
 ---
 {% img /gallery/audio-console.jpg %}
 Minos employs a prioritized configuration system to ensure flexibility and integrity of the configurations. With Minos, you can customize your site for every post and language variant without worrying about breaking the compilation. Minos will also remind you of any missing configurations if you intend to enable some features.

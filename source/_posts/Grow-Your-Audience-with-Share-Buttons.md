@@ -4,6 +4,11 @@ categories:
 - Documentation
 tags:
 - Minos
+toc: true
+navbar_links:
+  Edit on GitHub:
+    icon: fas fa-edit
+    url: https://github.com/ppoffice/hexo-theme-minos/edit/site/source/_posts/Grow-Your-Audience-with-Share-Buttons.md
 ---
 {% img /gallery/social-media.jpg %}
 Adding share buttons to your site is a good way to encourage readers to share your ideas and gain visibility quickly. Minos providers several share button services to you which take no time to configure and use. Detailed configurations are given below. Also, you may need to refer to the vendor's installation instructions for actual values of your options.

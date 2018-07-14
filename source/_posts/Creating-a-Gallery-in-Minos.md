@@ -5,6 +5,10 @@ categories:
 tags:
 - Minos
 - Plugin
+navbar_links:
+  Edit on GitHub:
+    icon: fas fa-edit
+    url: https://github.com/ppoffice/hexo-theme-minos/edit/site/source/_posts/Creating-a-Gallery-in-Minos.md
 ---
 
 {% colorquote info %}

@@ -4,6 +4,10 @@ categories:
 - Documentation
 tags:
 - Minos
+navbar_links:
+  Edit on GitHub:
+    icon: fas fa-edit
+    url: https://github.com/ppoffice/hexo-theme-minos/edit/site/source/_posts/Getting-Started-with-Minos.md
 ---
 ![](/hexo-theme-minos/gallery/forest.jpg)
 Minos is a simple and retro styled Hexo theme which concentrates more on your ideas. Minos is very expressive as it has extensive plugin support, colorful code highlighting choices, flexible configurations and out-of-box multi-language support. Meanwhile, minimalism also makes Minos a great theme for both writers and readers who desire a better reading experience.

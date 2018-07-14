@@ -5,6 +5,11 @@ categories:
 tags:
 - Minos
 - Plugin
+toc: true
+navbar_links:
+  Edit on GitHub:
+    icon: fas fa-edit
+    url: https://github.com/ppoffice/hexo-theme-minos/edit/site/source/_posts/Writing-Math-Formulas-Using-MathJax.md
 ---
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mrow><mi>f</mi><mrow><mo>(</mo><mi>a</mi><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><mi>&#x3C0;</mi><mi>i</mi></mrow></mfrac><msub><mo>&#x222E;</mo><mrow><mi>&#x3B3;</mi></mrow></msub><mfrac><mrow><mi>f</mi><mo>(</mo><mi>z</mi><mo>)</mo></mrow><mrow><mi>z</mi><mo>&#x2212;</mo><mi>a</mi></mrow></mfrac><mi>d</mi><mi>z</mi></mrow></math>
 

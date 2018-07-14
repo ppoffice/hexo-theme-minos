@@ -5,6 +5,11 @@ categories:
 tags:
 - Minos
 - Plugin
+toc: true
+navbar_links:
+  Edit on GitHub:
+    icon: fas fa-edit
+    url: https://github.com/ppoffice/hexo-theme-minos/edit/site/source/_posts/Using-Hexo-Tag-Plugins-in-Minos.md
 ---
 
 {% colorquote info %}
