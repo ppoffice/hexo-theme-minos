@@ -41,6 +41,11 @@ a.tag.article-tag {
     a.navbar-item.is-active {
         color: #3273dc;
     }
+
+    .toc .navbar-dropdown {
+        max-height: 500px;
+        overflow-y: auto;
+    }
 }
 
 .article {

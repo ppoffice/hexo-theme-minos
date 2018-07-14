@@ -44,8 +44,8 @@
             </a>
             <% } %>
             <% if (has_config('toc') && get_config('toc') === true) { %>
-            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only">
-                <a class="navbar-item toc">
+            <div class="navbar-item is-hoverable has-dropdown is-hidden-mobile is-hidden-tablet-only toc">
+                <a class="navbar-item">
                     <i class="fa fa-list"></i>
                 </a>
                 <div class="navbar-dropdown is-right">
@@ -55,7 +55,7 @@
                     <hr class="navbar-divider">
                     <% } %>
                     <% lastHeading = heading[0].split('.')[0]; %>
-                    <a class="navbar-item" href="#<%= heading[1] %>"><%- `${ heading[0] } ${ heading[2] }` %></a>
+                    <a class="navbar-item" href="#<%= heading[1] %>"><%= heading[0] %>&nbsp;&nbsp;<%- heading[3] === 1 ? '<b>' : '' %><%= heading[2] %><%- heading[3] === 1 ? '</b>' : '' %></a>
                 <% } %>
                 </div>
             </div>
