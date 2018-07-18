@@ -1,0 +1,28 @@
+name: 'Spanish'
+common:
+  archives: 'Archivo'
+  category: 'Categoría'
+  tag: 'Tag'
+  categories: 'Categorías'
+  tags: 'Tags'
+nav:
+  next: 'Siguiente'
+  prev: 'Anterior'
+  search: 'Buscar'
+  toc: 'Tabla de Contenidos'
+article:
+  read_more: 'Leer más'
+  read: 'leer'
+  about: 'Acerca de'
+  words: 'palabras'
+  comments: 'Comentarios'
+  contents: 'Contents'
+search:
+  hint: 'Escribe algo...'
+insight:
+  hint: 'Escribe algo...'
+  posts: 'Posts'
+  pages: 'Páginas'
+  categories: 'Categorías'
+  tags: 'Tags'
+  untitled: '(Sin título)'
