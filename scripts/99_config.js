@@ -55,5 +55,5 @@ hexo.extend.helper.register('get_config', function (configName, defaultValue = n
         this.config,
         getThemeConfig(this.page.lang),
         !excludePage ? this.page : {}), configName);
-    return configName === null ? defaultValue : config;
+    return config === null ? defaultValue : config;
 });

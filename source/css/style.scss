@@ -2,8 +2,6 @@ $family-serif: "Ovo", "Georgia", "STZhongsong", "Microsoft YaHei", serif;
 $family-mono: "Source Code Pro", monospace, "Microsoft YaHei";
 $border-color: #dbdbdb;
 
-@import "../../../../node_modules/highlight.js/styles/atom-one-light";
-
 body, button, input, select, textarea {
     font-family: $family-serif;
 }
@@ -435,26 +433,15 @@ a.tag.article-tag {
     }
 }
 
-$hljs-classes: "comment" "quote" "variable" "template" "attribute" "tag" "name" "regexp" "link" "name" "selector"
-                "selector" "number" "meta" "built_in" "builtin" "literal" "type" "params" "string" "symbol" "bullet"
-                "title" "section" "keyword" "selector" "deletion" "addition" "deletion" "addition" "emphasis" "strong";
-
 code, pre {
     font-size: 0.85rem;
     font-family: $family-mono;
 }
 
 figure.highlight {
-    @extend .hljs;
     padding: 0;
     width: 100%;
     margin: 0 0 1.5rem;
-
-    @each $class in $hljs-classes {
-        .#{$class} {
-            @extend .hljs-#{$class} !optional;
-        }
-    }
 
     pre,
     table tr:hover {

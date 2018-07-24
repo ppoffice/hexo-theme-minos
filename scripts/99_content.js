@@ -28,7 +28,7 @@ function getMomentLocale(language) {
 }
 
 function injectMomentLocale(func) {
-    return function() {
+    return function () {
         let language = getMomentLocale(getPageLanguage(this.page));
         moment.locale(language);
         const args = Array.prototype.slice.call(arguments).map(arg => {
@@ -52,7 +52,7 @@ hexo.extend.helper.register('is_tags', function () {
 /**
  * Generate html head title based on page type
  */
-hexo.extend.helper.register('page_title', function() {
+hexo.extend.helper.register('page_title', function () {
     const page = this.page;
     let title = page.title;
 
@@ -75,34 +75,34 @@ hexo.extend.helper.register('page_title', function() {
 
     const getConfig = hexo.extend.helper.get('get_config').bind(this);
 
-    return [title, getConfig('title', '', true)].filter(str => typeof(str) !== 'undefined' && str.trim() !== '').join(' - ');
+    return [title, getConfig('title', '', true)].filter(str => typeof (str) !== 'undefined' && str.trim() !== '').join(' - ');
 });
 
 /**
  * Format date to string without year.
  */
-hexo.extend.helper.register('format_date', injectMomentLocale(function(date) {
+hexo.extend.helper.register('format_date', injectMomentLocale(function (date) {
     return moment(date).format('MMM D');
 }));
 
 /**
  * Format date to string with year.
  */
-hexo.extend.helper.register('format_date_full', injectMomentLocale(function(date) {
+hexo.extend.helper.register('format_date_full', injectMomentLocale(function (date) {
     return moment(date).format('MMM D YYYY');
 }));
 
 /**
  * Get moment.js supported page locale
  */
-hexo.extend.helper.register('momentjs_locale', function() {
+hexo.extend.helper.register('momentjs_locale', function () {
     return getMomentLocale(getPageLanguage(this.page));
 });
 
 /**
  * Export moment.duration
  */
-hexo.extend.helper.register('duration', injectMomentLocale(function() {
+hexo.extend.helper.register('duration', injectMomentLocale(function () {
     return moment.duration.apply(null, arguments);
 }));
 
@@ -140,7 +140,7 @@ hexo.extend.helper.register('toc_list', (content) => {
         return tocList;
     }
     const headings = $(levelTags.join(','));
-    headings.each(function() {
+    headings.each(function () {
         const level = levelTags.indexOf(this.name);
         const id = $(this).attr('id');
         const text = _.escape($(this).text());
@@ -161,4 +161,20 @@ hexo.extend.helper.register('toc_list', (content) => {
         tocList.push([levels.slice(0, level + 1).join('.'), id, text, level + 1]);
     });
     return tocList;
+});
+
+/**
+ * Add .hljs class name to the code blocks and code elements
+ */
+hexo.extend.filter.register('after_post_render', function (data) {
+    const $ = cheerio.load(data.content);
+    $('figure.highlight').addClass('hljs');
+    $('figure.highlight .code .line > span').each(function () {
+        const classes = $(this).attr('class').split(' ');
+        if (classes.length === 1) {
+            $(this).addClass('hljs-' + classes[0]);
+        }
+    });
+    data.content = $.html();
+    return data;
 });
