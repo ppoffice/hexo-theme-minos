@@ -26,15 +26,6 @@ The `_config.yml` file at the theme's root contains configurations mostly relate
 3. {% post_link Grow-Your-Audience-with-Share-Buttons %}
 {% endcolorquote %}
 
-#### Use another code highlight theme
-
-Minos directly import the code highlight themes from `highlight.js`, which should be installed when you install all your site's dependencies. To use another highlight theme, please change the imported file in the `themes/minos/source/css/styles.scss`. All available themes are listed in `node_modules/highlight.js/styles/`
-
-{% codeblock lang:diff styles.scss %}
-- @import "../../../../node_modules/highlight.js/styles/atom-one-light";
-+ @import "../../../../node_modules/highlight.js/styles/<css file name without .css>";
-{% endcodeblock%}
-
 ## Language variant of theme configurations
 
 When you are creating a website which is served in several languages, you may want to make sure certain page elements are display in appropriate language or some plugins to be switched to localized ones. Minos provides the language variant feature to help you do that. Simply create `_config.<language_name>.yml` besides theme's `_config.yml` and change the configurations you want. Every time files for a specific language is going to be generated, Minos will look for the values in the `_config.<language_name>.yml` file of that language and override same configurations in the default `_config.yml`. For more information on how to set up multiple language support, please refer to the [Guide to Multiple Language Support in Minos](/).
