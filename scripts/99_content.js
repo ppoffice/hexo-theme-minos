@@ -123,7 +123,7 @@ hexo.extend.helper.register('word_count', (content) => {
  * ]
  */
 hexo.extend.helper.register('toc_list', (content) => {
-    const $ = cheerio.load(content);
+    const $ = cheerio.load(content, { decodeEntities: false });
     const levels = [0, 0, 0];
     const levelTags = [];
     // Get top 3 headings
@@ -164,7 +164,7 @@ hexo.extend.helper.register('toc_list', (content) => {
 });
 
 function patchCodeHighlight(content) {
-    const $ = cheerio.load(content);
+    const $ = cheerio.load(content, { decodeEntities: false });
     $('figure.highlight').addClass('hljs');
     $('figure.highlight .code .line span').each(function () {
         const classes = $(this).attr('class').split(' ');
