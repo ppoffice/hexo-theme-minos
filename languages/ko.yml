@@ -1,0 +1,28 @@
+name: '한국어'
+common:
+  archives: '목록'
+  category: '카테고리'
+  tag: '태그'
+  categories: '카테고리 목록'
+  tags: '태그 목록'
+nav:
+  next: '다음'
+  prev: '이전'
+  search: '검색'
+  toc: '목차'
+article:
+  read_more: '더 읽기'
+  read: '소요'
+  about: '약'
+  words: '단어'
+  comments: '댓글'
+  contents: '본문'
+search:
+  hint: '아무거나 입력하세요'
+insight:
+  hint: '아무거나 입력하세요'
+  posts: '글'
+  pages: '페이지'
+  categories: '카테고리 목록'
+  tags: '태그 목록'
+  untitled: '(제목없음)'
