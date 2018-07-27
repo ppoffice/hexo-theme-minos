@@ -1,4 +1,4 @@
-<% if (has_config('plugins.google-analytics.tracking_id')) { %>
+<% if (head && has_config('plugins.google-analytics.tracking_id')) { %>
 <script async src="https://www.googletagmanager.com/gtag/js?id=<%= get_config('plugins.google-analytics.tracking_id') %>"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
