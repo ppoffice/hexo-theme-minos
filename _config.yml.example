@@ -44,11 +44,13 @@ comment:
   shortname:
 
 # Other plugins and their settings.
+# some plugins can be placed at <HEAD> with `place_at_head` option.
 plugins:
   mathjax: true
   gallery: true
   google-analytics:
     tracking_id:
+    place_at_head: true
 
 # Additional navigation bar links on the right.
 # Links can either be text or icon. The following link is set to be an icon link whose icon
