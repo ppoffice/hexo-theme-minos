@@ -11,8 +11,8 @@
         el: '#valine-thread' ,
         notify: <%= get_config('comment.notify', false) %>,
         verify: <%= get_config('comment.verify', false) %>,
-        app_id: '<%= get_config('comment.appId') %>',
-        app_key: '<%= get_config('comment.appKey') %>',
+        app_id: '<%= get_config('comment.app_id') %>',
+        app_key: '<%= get_config('comment.app_key') %>',
         placeholder: '<%= get_config('comment.placeholder', 'Say something...') %>'
     });
 </script>
