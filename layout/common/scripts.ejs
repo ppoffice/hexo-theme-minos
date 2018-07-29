@@ -28,7 +28,9 @@
 
 <% if (has_config('plugins')) { %>
     <% for (let plugin in get_config('plugins')) { %>
-    <%- partial('plugins/' + plugin, {head: false}) %>
+        <% if (get_config('plugins.' + plugin + '.place_at_head') !== true) { %>
+            <%- partial('plugins/' + plugin) %>
+        <% } %>
     <% } %>
 <% } %>
 
