@@ -4,6 +4,14 @@
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
+<% if (has_config('description')) { %>
+<meta name="description" content="<%- get_config('description') %>">
+<% } %>
+
+<% if (has_config('keywords')) { %>
+<meta name="keywords" content="<%= get_config('keywords') %>">
+<% } %>
+
 <% if (has_config('head.open_graph')) { %>
     <%- open_graph({
         twitter_id: get_config('head.open_graph.twitter_id', ''),
