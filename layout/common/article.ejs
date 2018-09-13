@@ -65,7 +65,7 @@
 </div>
 <% } %>
 
-<% if (!index && page.comments && has_config('comment.type')) { %>
+<% if (!index && get_config('comments') && has_config('comment.type')) { %>
 <div class="comments">
     <h3 class="title is-4"><%= __('article.comments') %></h3>
     <%- partial('comment/' + get_config('comment.type')) %>
