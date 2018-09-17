@@ -170,6 +170,7 @@ function patchCodeHighlight(content) {
         const classes = $(this).attr('class').split(' ');
         if (classes.length === 1) {
             $(this).addClass('hljs-' + classes[0]);
+            $(this).removeClass(classes[0]);
         }
     });
     return $.html();
