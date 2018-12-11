@@ -4,49 +4,52 @@
         .hljs {
             position: relative;
         }
-        .hljs > .clipboard-btn {
-            position: absolute;
-            right: 4px;
-            top: 4px;
-            display: none;
+
+        .hljs .clipboard-btn {
+            float: right;
+            color: #9a9a9a;
             background: none;
             border: none;
         }
-        .hljs:hover .clipboard-btn {
+
+        .hljs > .clipboard-btn {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 4px;
+        }
+
+        .hljs:hover > .clipboard-btn {
             display: inline;
+        }
+
+        .hljs > figcaption > .clipboard-btn {
+            margin-right: 4px;
         }
     </style>
     <script>
       $(document).ready(function () {
         $('figure.hljs').each(function(i, figure) {
+          var codeId = 'code-' + i;
           var code = figure.querySelector('.code');
-          code.id = 'code-' + i;
-          var copyButton = $('<button data-clipboard-target-id=' + code.id +'>Copy</button>');
-
-          copyButton.css('float', 'right');
+          var copyButton = $('<button>Copy <i class="far fa-clipboard"></i></button>');
+          code.id = codeId;
           copyButton.addClass('clipboard-btn');
-          figure.prepend(copyButton[0])
+          copyButton.attr('data-clipboard-target-id', codeId);
+
+          var figcaption = figure.querySelector('figcaption');
+
+          if (figcaption) {
+            figcaption.append(copyButton[0]);
+          } else {
+            figure.prepend(copyButton[0]);
+          }
         })
 
         var clipboard = new ClipboardJS('.clipboard-btn', {
           target: function(trigger) {
             return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
           }
-        });
-
-        clipboard.on('success', function(e) {
-          $(e.trigger).text("Copied!");
-          e.clearSelection();
-          setTimeout(function() {
-            $(e.trigger).text("Copy");
-          }, 2500);
-        });
-
-        clipboard.on('error', function(e) {
-          $(e.trigger).text("Can't in Safari");
-          setTimeout(function() {
-            $(e.trigger).text("Copy");
-          }, 2500);
         });
       })
     </script>
