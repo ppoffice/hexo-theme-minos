@@ -47,6 +47,7 @@ comment:
 plugins:
   mathjax: true
   gallery: true
+  clipboard: true
   google-analytics:
     tracking_id:
 
