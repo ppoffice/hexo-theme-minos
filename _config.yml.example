@@ -33,6 +33,9 @@ menu:
 search:
   type: insight
 
+# Navigation bar toc settings
+toc: false
+
 # Share plugin settings.
 share:
   type: sharethis
