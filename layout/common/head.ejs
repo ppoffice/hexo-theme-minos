@@ -4,6 +4,16 @@
 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/outdated-browser/1.1.5/outdatedbrowser.min.css">
 
+<% const languages = display_languages();
+const pageLanguage = page_language(page);
+if (languages.length > 1) {
+    languages.forEach((language) => {
+        if (language !== 'default' && pageLanguage !== language) { %>
+<link href="<%= url_for(i18n_path(language)) %>" rel="alternate" hreflang="<%= rfc5646(language) %>" />
+    <% }
+    });
+} %>
+
 <% if (has_config('description')) { %>
 <meta name="description" content="<%- get_config('description') %>">
 <% } %>

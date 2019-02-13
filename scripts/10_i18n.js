@@ -70,7 +70,7 @@ function injectLanguages(func) {
 function getPageLanguage(post) {
     const languages = getUsedLanguages();
     let lang = post.lang || post.language;
-    if (!lang) {
+    if (!lang && post.source) {
         const path = post.source.startsWith('_posts/') ? post.source.slice('_posts/'.length) : post.source;
         const pattern = new Pattern(`${hexo.config.i18n_dir}/*path`);
         const data = pattern.match(path);
