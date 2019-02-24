@@ -9,7 +9,7 @@ const pageLanguage = page_language(page);
 if (languages.length > 1) {
     languages.forEach((language) => {
         if (language !== 'default' && pageLanguage !== language) { %>
-<link href="<%= url_for(i18n_path(language)) %>" rel="alternate" hreflang="<%= rfc5646(language) %>" />
+<link href="<%= url_for(i18n_path(!is_default_language(language) ? language : null)) %>" rel="alternate" hreflang="<%= rfc5646(language) %>" />
     <% }
     });
 } %>
