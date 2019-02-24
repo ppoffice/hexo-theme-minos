@@ -1,0 +1,67 @@
+# Website's icon url.
+favicon: /favicon.png
+
+# Open Graph metadata (https://hexo.io/docs/helpers.html#open-graph)
+open_graph:
+  twitter_id:
+  twitter_site:
+  google_plus:
+  fb_admins:
+  fb_app_id:
+
+# Website's logo shown on the left of the navigation bar.
+# It can either be an url to an image or a string if the following option is set.
+# logo:
+#   text: <logo string>
+logo:
+
+article:
+  # Show word count and estimated reading time.
+  readtime: true
+  # Code highlight theme, please see https://highlightjs.org/static/demo/
+  highlight: atom-one-light
+
+# Navigation bar menu links.
+menu:
+  Archives: /archives
+  Documentation: /categories/Documentation
+  About: /about
+
+# Search plugin settings.
+search:
+  type: insight
+
+# Navigation bar toc settings
+toc: false
+
+# Share plugin settings.
+share:
+  type: sharethis
+  install_url: //platform-api.sharethis.com/js/sharethis.js#property=5ab6f60ace89f00013641890&product=inline-share-buttons
+
+# Comment plugin settings.
+comment:
+  type: disqus
+  shortname: hexo-theme-minos
+
+# Other plugins and their settings.
+plugins:
+  mathjax: true
+  katex: false
+  gallery: true
+  clipboard: true
+  google-analytics:
+    tracking_id: UA-72437521-3
+
+# Additional navigation bar links on the right.
+# Links can either be text or icon. The following link is set to be an icon link whose icon
+# is set to the class name of a FontAwesome 5 icon. The `footer_links` below also gives an
+# example of setting plain text links.
+navbar_links:
+  GitHub:
+    icon: fab fa-github
+    url: https://github.com/ppoffice/hexo-theme-minos
+
+# Links at the bottom of the page.
+footer_links:
+  GitHub: https://github.com/ppoffice/hexo-theme-minos
