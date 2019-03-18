@@ -1,0 +1,28 @@
+name: '繁體中文'
+common:
+  archives: '封存'
+  category: '分類'
+  tag: '標籤'
+  categories: '分類'
+  tags: '標籤'
+nav:
+  next: '下一頁'
+  prev: '上一頁'
+  search: '搜尋'
+  toc: '目錄'
+article:
+  read_more: '閱讀更多'
+  read: '讀完'
+  about: '約'
+  words: '字'
+  comments: '評論'
+  contents: '目錄'
+search:
+  hint: '站內搜尋'
+insight:
+  hint: '站內搜尋'
+  posts: '文章'
+  pages: '頁面'
+  categories: '分類'
+  tags: '標籤'
+  untitled: '(無標題)'
