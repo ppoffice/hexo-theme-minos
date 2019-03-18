@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const moment = require('moment');
 const cheerio = require('cheerio');
-const { formatRfc5646, formatIso639, getClosestRfc5646WithCountryCode, getPageLanguage } = require('./10_i18n');
+const { formatRfc5646, formatIso639, getClosestRfc5646WithCountryCode, getPageLanguage } = require('../lib/i18n')(hexo);
 
 const MOMENTJS_SUPPORTED_LANGUAGES = ['af', 'ar-dz', 'ar-kw', 'ar-ly', 'ar-ma', 'ar-sa',
     'ar-tn', 'ar', 'az', 'be', 'bg', 'bm', 'bn', 'bo', 'br', 'bs', 'ca', 'cs', 'cv', 'cy',

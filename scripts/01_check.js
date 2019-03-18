@@ -50,7 +50,7 @@ if (!fs.existsSync(mainConfigPath)) {
     logger.warn(`${mainConfigPath} is not found. Please create one from the template _config.yml.example.`)
 }
 
-const { getUsedLanguages, getDisplayLanguages, isLanguageValid } = require('./10_i18n');
+const { getUsedLanguages, getDisplayLanguages, isLanguageValid } = require('../lib/i18n')(hexo);
 
 logger.info('Checking language names against RFC5646 specs');
 const invalidLanguages = getUsedLanguages().filter(language => !isLanguageValid(language));
