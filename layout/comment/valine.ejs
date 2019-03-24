@@ -16,7 +16,8 @@
         avatar: '<%= get_config('comment.avatar') %>',
         placeholder: '<%= get_config('comment.placeholder', 'Say something...') %>',
         meta: ['nick', 'mail'],
-        visitor: true
+        visitor: true,
+        lang: '<%= get_config('comment.lang') %>'
     })
 </script>
 <% } %>
