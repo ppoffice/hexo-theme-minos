@@ -67,3 +67,6 @@ navbar_links:
 # Links at the bottom of the page.
 footer_links:
   GitHub: https://github.com/ppoffice/hexo-theme-minos
+
+# Beian ICP information for Chinese users. Leave it blank if not needed.
+beian-icp:
