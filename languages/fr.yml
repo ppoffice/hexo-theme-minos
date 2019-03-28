@@ -1,0 +1,28 @@
+name: 'Français'
+common:
+  archives: 'Archives'
+  category: 'Catégorie'
+  tag: 'Tag'
+  categories: 'Catégories'
+  tags: 'Tags'
+nav:
+  next: 'Suivant'
+  prev: 'Précédent'
+  search: 'Chercher'
+  toc: 'Table des Matières'
+article:
+  read_more: 'Lire la Suite'
+  read: 'lire'
+  about: 'À propos'
+  words: 'mots'
+  comments: 'Commentaires'
+  contents: 'Sommaire'
+search:
+  hint: 'Que voulez-vous chercher ?'
+insight:
+  hint: 'Que voulez-vous chercher ?'
+  posts: 'Posts'
+  pages: 'Pages'
+  categories: 'Catégories'
+  tags: 'Tags'
+  untitled: '(Sans Titre)'
