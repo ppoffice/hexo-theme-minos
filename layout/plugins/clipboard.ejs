@@ -10,6 +10,11 @@
             color: #9a9a9a;
             background: none;
             border: none;
+            cursor: pointer;
+        }
+
+        .hljs .clipboard-btn:hover {
+          color: #8a8a8a;
         }
 
         .hljs > .clipboard-btn {
@@ -51,6 +56,9 @@
             return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
           }
         });
+        clipboard.on('success', function(e) {
+          e.clearSelection();
+        })
       })
     </script>
 <% } %>
