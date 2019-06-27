@@ -341,7 +341,7 @@ This is a normal paragraph:
 ***
 A code block continues until it reaches a line that is not indented (or the end of the article).
 
-Within a code block, ***ampersands (&)*** and angle **brackets (< and >)** are automatically converted into HTML entities.
+Within a code block, ***ampersands (&)*** and angle **brackets** are automatically converted into HTML entities.
 
 Code:
 
