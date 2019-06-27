@@ -64,32 +64,32 @@ per-page and per-language basis with the ability to merge and override partial c
 <div class="columns is-multiline">
     <div class="column is-half is-12-mobile">
         <b>_config.yml</b>
-        ```yaml
-        menu:
-          Archives: /archives
-          Lifestyle: /categories/LifeStyle
-        ```
-        <img style="height:40px" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/main-config.png">
+```yaml
+menu:
+  Archives: /archives
+  Lifestyle: /categories/LifeStyle
+```
+<img style="height:40px" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/main-config.png">
     </div>
     <div class="column is-half is-12-mobile">
         <b>_config.zh-cn.yml</b>
-        ```yaml
-        menu:
-          归档: /archives
-          生活: /categories/LifeStyle
-        ```
-        <img style="height:40px" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/language-config.png">
+```yaml
+menu:
+  归档: /archives
+  生活: /categories/LifeStyle
+```
+<img style="height:40px" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/language-config.png">
     </div>
     <div class="column is-half is-12-mobile">
         <b>post.md</b>
-        ```yaml
-        title: A Simple Post
-        menu:
-          Go Home: /index.html
-        ---
-        # Here is some simple markdown.
-        ```
-        <img style="height:40px" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/post-config.png">
+```yaml
+title: A Simple Post
+menu:
+  Go Home: /index.html
+---
+# Here is some simple markdown.
+```
+<img style="height:40px" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/post-config.png">
     </div>
 </div>
 
