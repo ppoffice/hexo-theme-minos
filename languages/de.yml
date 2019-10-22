@@ -1,0 +1,28 @@
+name: 'German'
+common:
+  archives: 'Archiv'
+  category: 'Kategorie'
+  tag: 'Tag'
+  categories: 'Kategorien'
+  tags: 'Tags'
+nav:
+  next: 'Nächstes'
+  prev: 'Vorheriges'
+  search: 'Suche'
+  toc: 'Inhaltsverzeichnis'
+article:
+  read_more: 'mehr'
+  read: 'lesen'
+  about: 'Über'
+  words: 'Wörter'
+  comments: 'Kommentare'
+  contents: 'Inhalte'
+search:
+  hint: 'Suche etwas...'
+insight:
+  hint: 'Suche etwas...'
+  posts: 'Posts'
+  pages: 'Seiten'
+  categories: 'Kategorien'
+  tags: 'Tags'
+untitled: '(Ohne Titel)'
