@@ -1,0 +1,28 @@
+name: 'Polish'
+common:
+  archives: 'Archiwum'
+  category: 'Kategoria'
+  tag: 'Tag'
+  categories: 'Kategorie'
+  tags: 'Tagi'
+nav:
+  next: 'Następna strona'
+  prev: 'Poprzednia strona'
+  search: 'Szukaj'
+  toc: 'Spis treśći'
+article:
+  read_more: 'Czytaj dalej'
+  read: 'czytania'
+  about: 'Około'
+  words: 'słów'
+  comments: 'Komentarze'
+  contents: 'Treść'
+search:
+  hint: 'Zacznij pisać...'
+insight:
+  hint: 'Zacznij pisać...'
+  posts: 'Posty'
+  pages: 'Strony'
+  categories: 'Kategorie'
+  tags: 'Tagi'
+  untitled: '(Bez tytułu)'
