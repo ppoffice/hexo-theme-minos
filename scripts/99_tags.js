@@ -30,7 +30,7 @@ hexo.extend.filter.register('after_post_render', function (data) {
 });
 
 function patchCodeHighlight(content) {
-    const $ = cheerio.load(content, { decodeEntities: false });
+    const $ = cheerio.load(content, { decodeEntities: true });
     $('figure.highlight').addClass('hljs');
     $('figure.highlight .code .line span').each(function () {
         const classes = $(this).attr('class').split(' ');
