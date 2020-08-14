@@ -1,6 +1,28 @@
 name: 'RU'
+common:
+  archives: 'Архив'
+  category: 'Категория'
+  tag: 'Тег'
+  categories: 'Категории'
+  tags: 'Теги'
 nav:
   next: 'Далее'
   prev: 'Назад'
+  search: 'Поиск'
+  toc: 'Оглавление'
 article:
+  read_more: 'Читать далее'
+  read: 'читать'
+  about: 'О'
+  words: 'Слова'
   comments: 'Комментарии'
+  contents: 'Содержание'
+search:
+  hint: 'Введите строку...'
+insight:
+  hint: 'Введите строку...'
+  posts: 'Статьи'
+  pages: 'Страницы'
+  categories: 'Категории'
+  tags: 'Теги'
+untitled: '(Без названия)'
