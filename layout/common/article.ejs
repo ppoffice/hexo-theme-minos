@@ -8,7 +8,19 @@
     </h1>
     <div class="article-meta columns is-variable is-1 is-multiline is-mobile is-size-7-mobile">
         <span class="column is-narrow">
-            <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= format_date_full(post.date) %></time>
+            <% if (has_config('article.date_format') && get_config('article.date_format') === 'relative' ) { %>
+                <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= format_date_full(post.date) %></time>
+            <% } else if (has_config('article.date_format') && get_config('article.date_format') === 'full' ) { %>
+                <span><%= format_date_full(post.date) %></span>
+            <% } else if (has_config('article.date_format') && get_config('article.date_format') === 'relative_full' ) { %>
+                <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= format_date_full(post.date) %></time>
+                <span class="second-date-block"> (<%= format_date_full(post.date) %>)</span>
+            <% } else if (has_config('article.date_format') && get_config('article.date_format') === 'full_relative' ) { %>
+                <span><%= format_date_full(post.date) %></span>
+                <span class="second-date-block"> (<time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= format_date_full(post.date) %></time>)</span>
+            <% } else { %>
+                <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= format_date_full(post.date) %></time>
+            <% } %>
         </span>
         <% if (post.categories && post.categories.length){ %>
         <span class="column is-narrow article-category">

@@ -47,6 +47,11 @@ a.tag.article-tag {
 }
 
 .article {
+    .second-date-block {
+        color: gray;
+        font-size: 0.8rem;
+    }
+
     & + .article {
         padding-top: 2rem;
         border-top: 1px solid $border-color;
