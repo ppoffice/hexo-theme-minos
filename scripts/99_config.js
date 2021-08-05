@@ -30,7 +30,7 @@ function getThemeConfig(lang = null) {
         if (!altConfigs.hasOwnProperty(lang)) {
             const configPath = path.join(themeRoot, '_config.' + lang + '.yml');
             if (fs.existsSync(configPath)) {
-                const config = yaml.safeLoad(fs.readFileSync(configPath));
+                const config = yaml.load(fs.readFileSync(configPath));
                 if (config != null) {
                     altConfigs[lang] = config;
                 }
