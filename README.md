@@ -1,8 +1,8 @@
 <p align="center">
-<img height="40" src="http://blog.zhangruipeng.me/hexo-theme-minos/images/logo.png">
+<img height="40" src="https://ppoffice.github.io/hexo-theme-minos/images/logo.png">
 <br> A simple and retro styled Hexo theme, concentrating more on your ideas.
 <br>
-<a href="http://blog.zhangruipeng.me/hexo-theme-minos/"><b>Preview</b></a> | 
+<a href="https://ppoffice.github.io/hexo-theme-minos/"><b>Preview</b></a> | 
 <a href="https://github.com/ppoffice/hexo-theme-minos/archive/master.zip"><b>Download</b></a> |
 <a href="http://ppoffice.github.io/hexo-theme-minos/categories/Documentation/"><b>Documentation</b></a>
 </p>
@@ -62,10 +62,10 @@ Minos directly import code highlight themes from the [highlight.js](https://high
 
 <table>
     <tr>
-        <td><img src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/code-highlight/tomorrow.png"></td>
-        <td><img src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/code-highlight/atom-one-light.png"></td>
-        <td><img src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/code-highlight/monokai.png"></td>
-        <td><img src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/code-highlight/androidstudio.png"></td>
+        <td><img src="https://ppoffice.github.io/hexo-theme-minos/gallery/code-highlight/tomorrow.png"></td>
+        <td><img src="https://ppoffice.github.io/hexo-theme-minos/gallery/code-highlight/atom-one-light.png"></td>
+        <td><img src="https://ppoffice.github.io/hexo-theme-minos/gallery/code-highlight/monokai.png"></td>
+        <td><img src="https://ppoffice.github.io/hexo-theme-minos/gallery/code-highlight/androidstudio.png"></td>
     </tr>
 </table>
 
@@ -100,9 +100,9 @@ menu:
         </td>
     </tr>
     <tr>
-        <td><img height="40" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/main-config.png"></td>
-        <td><img height="40" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/language-config.png"></td>
-        <td><img height="40" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/post-config.png"></td>
+        <td><img height="40" src="https://ppoffice.github.io/hexo-theme-minos/gallery/navbar/main-config.png"></td>
+        <td><img height="40" src="https://ppoffice.github.io/hexo-theme-minos/gallery/navbar/language-config.png"></td>
+        <td><img height="40" src="https://ppoffice.github.io/hexo-theme-minos/gallery/navbar/post-config.png"></td>
     </tr>
 </table>
 
@@ -117,7 +117,7 @@ and create an additional `_config.<language shortname>.yml`, then you are ready 
 No matter what modern browsering device your audiences are using, they can always get the best experience because Minos's responsive
 layout across multiple viewpoints.
 
-![Responsive Layout](http://blog.zhangruipeng.me/hexo-theme-minos/gallery/responsive.png)
+![Responsive Layout](https://ppoffice.github.io/hexo-theme-minos/gallery/responsive.png)
 
 ### :cd: Installation
 
