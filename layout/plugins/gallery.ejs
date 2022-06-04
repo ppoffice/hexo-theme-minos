@@ -8,6 +8,7 @@
                 $('.article.gallery').lightGallery({ selector: '.gallery-item' });
             }
             if (typeof($.fn.justifiedGallery) === 'function') {
+                $('.justified-gallery > p > .gallery-item').unwrap();
                 $('.justified-gallery').justifiedGallery();
             }
         });
