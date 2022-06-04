@@ -1,11 +1,11 @@
 title: About Minos
 ---
 <p align="center">
-<img height="40" src="http://blog.zhangruipeng.me/hexo-theme-minos/images/logo.png">
+<img height="40" src="https://ppoffice.github.io/hexo-theme-minos/images/logo.png">
 <br>
 A simple and retro styled Hexo theme, concentrating more on your ideas.
 <br>
-<small><a href="http://blog.zhangruipeng.me/hexo-theme-minos/"><b>Preview</b></a> | <a href="https://github.com/ppoffice/hexo-theme-minos/archive/master.zip"><b>Download</b></a> | <a href="http://ppoffice.github.io/hexo-theme-minos/categories/Documentation/"><b>Documentation</b></small>
+<small><a href="https://ppoffice.github.io/hexo-theme-minos/"><b>Preview</b></a> | <a href="https://github.com/ppoffice/hexo-theme-minos/archive/master.zip"><b>Download</b></a> | <a href="http://ppoffice.github.io/hexo-theme-minos/categories/Documentation/"><b>Documentation</b></small>
 </p>
 
 ![Minos](http://ppoffice.github.io/hexo-theme-minos/gallery/preview.png "Minos Preview")
@@ -50,10 +50,10 @@ Minos directly import code highlight themes from the [highlight.js](https://high
 70 highlight themes available to you.
 
 <div class="columns is-multiline is-mobile">
-<div class="column is-half-mobile"><img src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/code-highlight/tomorrow.png"></div>
-<div class="column is-half-mobile"><img src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/code-highlight/atom-one-light.png"></div>
-<div class="column is-half-mobile"><img src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/code-highlight/monokai.png"></div>
-<div class="column is-half-mobile"><img src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/code-highlight/androidstudio.png"></div>
+<div class="column is-half-mobile"><img src="https://ppoffice.github.io/hexo-theme-minos/gallery/code-highlight/tomorrow.png"></div>
+<div class="column is-half-mobile"><img src="https://ppoffice.github.io/hexo-theme-minos/gallery/code-highlight/atom-one-light.png"></div>
+<div class="column is-half-mobile"><img src="https://ppoffice.github.io/hexo-theme-minos/gallery/code-highlight/monokai.png"></div>
+<div class="column is-half-mobile"><img src="https://ppoffice.github.io/hexo-theme-minos/gallery/code-highlight/androidstudio.png"></div>
 </div>
 
 **Elastic Theme Configuration**
@@ -69,7 +69,7 @@ menu:
   Archives: /archives
   Lifestyle: /categories/LifeStyle
 ```
-<img style="height:40px" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/main-config.png">
+<img style="height:40px" src="https://ppoffice.github.io/hexo-theme-minos/gallery/navbar/main-config.png">
     </div>
     <div class="column is-half is-12-mobile">
         <b>_config.zh-cn.yml</b>
@@ -78,7 +78,7 @@ menu:
   归档: /archives
   生活: /categories/LifeStyle
 ```
-<img style="height:40px" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/language-config.png">
+<img style="height:40px" src="https://ppoffice.github.io/hexo-theme-minos/gallery/navbar/language-config.png">
     </div>
     <div class="column is-half is-12-mobile">
         <b>post.md</b>
@@ -89,7 +89,7 @@ menu:
 ---
 # Here is some simple markdown.
 ```
-<img style="height:40px" src="http://blog.zhangruipeng.me/hexo-theme-minos/gallery/navbar/post-config.png">
+<img style="height:40px" src="https://ppoffice.github.io/hexo-theme-minos/gallery/navbar/post-config.png">
     </div>
 </div>
 
@@ -104,7 +104,7 @@ and create an additional `_config.<language shortname>.yml`, then you are ready 
 No matter what modern browsering device your audiences are using, they can always get the best experience because Minos's responsive
 layout across multiple viewpoints.
 
-![Responsive Layout](http://blog.zhangruipeng.me/hexo-theme-minos/gallery/responsive.png)
+![Responsive Layout](https://ppoffice.github.io/hexo-theme-minos/gallery/responsive.png)
 
 ### :cd: Installation
 

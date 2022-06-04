@@ -27,6 +27,7 @@ or this:
 Furthermore, you can also use Justified Gallery to display you photos in a grid:
 
 <div class="justified-gallery">
+
 ![Elephant](/hexo-theme-minos/gallery/animals/elephant.jpeg)
 ![Dog](/hexo-theme-minos/gallery/animals/dog.jpeg)
 ![Birds](/hexo-theme-minos/gallery/animals/birds.jpeg)
@@ -34,10 +35,12 @@ Furthermore, you can also use Justified Gallery to display you photos in a grid:
 ![Fox](/hexo-theme-minos/gallery/animals/fox.jpeg)
 ![Horse](/hexo-theme-minos/gallery/animals/horse.jpeg)
 ![Leopard](/hexo-theme-minos/gallery/animals/leopard.jpeg)
+
 </div>
 
 {% codeblock lang:html HTML + Markdown %}
 <div class="justified-gallery">
+
 ![Elephant](/hexo-theme-minos/gallery/animals/elephant.jpeg)
 ![Dog](/hexo-theme-minos/gallery/animals/dog.jpeg)
 ![Birds](/hexo-theme-minos/gallery/animals/birds.jpeg)
@@ -45,5 +48,6 @@ Furthermore, you can also use Justified Gallery to display you photos in a grid:
 ![Fox](/hexo-theme-minos/gallery/animals/fox.jpeg)
 ![Horse](/hexo-theme-minos/gallery/animals/horse.jpeg)
 ![Leopard](/hexo-theme-minos/gallery/animals/leopard.jpeg)
+
 </div>
 {% endcodeblock %}
